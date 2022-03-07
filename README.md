@@ -1,108 +1,83 @@
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-Welcome USER_NAME,
+Casper Hille
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
-
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
-
-## Gitpod Reminders
-
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
-
-`python3 -m http.server`
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
-------
-
-## Release History
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
+Full-Stack Development course (5p) | Portfolio project 4 (Django focused project)
 ---
 
-Happy coding!
+# Purpose of the Project
+
+The project aims to make an e-commerce webpage, with authorisation and payment methods
+
+it's going to to sell my art make myself available for people to make requests or "Commisions" in the art comunity.
+
+# User Stories
+
+    Using a kanban board i am going to use Agile development to work one user story at a time.
+
+    - As an Admin I can go to inquiries so that I can fullfill users inquiries
+    - As an Admin I can disable a user so that I can prevent users from accessing the page after they have broken a terms of service
+    - As an admin I can create product post, set price, upload image (epic) so that	I can sell my products
+    - As a User I Can look at the gallery so that I can browse for designs
+    - As a User I Can add an item to my shopping cart so that I can buy can see the price combined and buy them all in one go
+    - As a User I Can add an inquiry so that I can buy graphic design that fits my purpose
+    - As a User I Can subscribe to the gallery so I can be notified when new art is being posted
+    - As a User I Can go to purchase history so that i can watch the status on my inquiry
+    - As a User I Can change my profile To keep my contact details updated
+    - As a User I Can order(filter) the products so that I can more easily find what I need
+    - As a User I Can make an account so that I can have the benefits
+    - As a User I Can change my password to keep my account secured
+    - As a User I Can go to purchase history to download my art i have bought
+    - As a User I can go to Order Status to watch updates so that I can give input
+
+# Features
+
+# Future features
+
+# Design and planning
+
+## python
+
+Python is an easy and basic programming language, but it is powerful with libraries to bring out capabilities to use in multiple
+
+## Django Framework
+
+Django is a framework that is made to speed up the process of building web applications, Here you can make apps and then use the apps for different projects. it has an extensive documentation.
+
+It is like all on in framework or "Batteries included philosophy framework"
+
+# testing
+
+# Deployment
+
+## via Heroku
+
+- Before you deploy, ensure your requirements.txt is updated and accounted for and get your API keys ready.
+
+- to deploy an application through Heroku, you need to make an account. Once you have created an account, you can have up to 5 projects on the free plan.
+
+- To create a new app. Log in, and you'll see a "Create app" button.
+  Once pressed, you'll be able to name your project and choose which region your application will host. The name needs to be unique.
+
+- You'll need to set up all your setting before you can deploy your project. You can find the “setting” in the tabs in the dashboard.
+
+  If you have API keys, you can insert them in the Config Vars section, and there is a button to reveal the keys.
+  once clicked, the const you used in the project should be in "KEY" and creds.json in the "VALUE"
+
+  Next, we'll set up build packs. Press the build pack and add the build packs you need. If you need more than one, make sure you put them in the correct order, You can drag and drop their list items.
+
+- now, we can start the deployment by heading over to the deploy tab. in this project, I chose to deploy through GitHub.
+
+  After I clicked through GitHub, I had to connect Heroku to my GitHub account. Thereafter I had to search for my project. Once selected.
+  I could choose which branch.
+
+  Now I can select an automatic deployment, which updates the app once GitHub updates or manual deployment that will only update Heroku when I press that button again.
+
+  Now we'll wait for Heroku to download all plugins and install all the requirements. Once done, there will be a message telling it completed or failed. Once successful, it will show a button to view your deployed application.
+
+- Now you have your deployed page. Now you can test if everything works as it should or send the links to your friends to show off those accomplishments you have made.
+
+# How to host this project.
+
+
+# My personal achievements and what I feel I need to work on.2
