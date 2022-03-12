@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from home import views as homeView
+from gallery import views as galleryView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', homeView.get_home, name='home'),
+    path('gallery/', galleryView.imageList.as_view(), name='gallery'),
 ]
