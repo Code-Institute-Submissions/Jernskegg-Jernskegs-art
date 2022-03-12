@@ -1,0 +1,90 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+body{
+    background: grey;
+}
+
+.hero{
+    height: 500px;
+    overflow: hidden;
+}
+
+.hero-1{
+    position: relative;
+    object-position: 650px;
+    z-index: 1;
+    clip-path: polygon(75% 0, 100% 0, 100% 100%, 65% 100%);
+}
+
+.hero-2{
+    position: relative;
+    object-position: -420px;
+    top: -500px;
+    z-index: 1;
+    clip-path: polygon(0 0, 35% 0, 25% 100%, 0 100%);
+}
+
+.hero-3{
+    position: relative;
+    object-position: 200px;
+    top: -1000px;
+    clip-path: polygon(35% 0, 75% 0, 65% 100%, 25% 100%);
+    z-index: 1; 
+}
+
+.hero-transition{
+    transition: all 0.5s cubic-bezier(1, 0, 0, 0.80);
+}
+
+.hero-transition:hover {
+    z-index: 200;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    object-position: 0;
+}
+
+.callout {
+    position: relative;
+    z-index: 201;
+    top: -1100px;
+    left: 500px;
+    padding: 5px 50px;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    color: white;
+    clip-path: polygon(1% 0, 100% 0, 100% 100%, 0 100%);
+    animation: callout-text 1s forwards;
+}
+
+@keyframes callout-text {
+    100%{
+        opacity: 100%;
+    }
+    0%{
+        transform: translateX(-100%);
+    }
+}
+
+.nav-link {
+    color: white;
+    transition: all 0.5s;
+}
+
+.nav-link:hover{
+    font-size: 110%;
+    background-color: white;
+    color: black;
+}
+
+.gallery-image-preview {
+    clip-path: polygon(100% 0, 100% 100%, 100% 100%, 0 100%, 0 0);
+    transition: all 0.25s;
+    
+}
+
+.gallery-image-preview:hover {
+    clip-path: polygon(100% 0, 100% 75%, 75% 100%, 0 100%, 0 0);
+}
