@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="p-5">
+    <div class="g-0 row main-gallery justify-content-center" >
+        {% for listimage in images %}
+        <div class="bg-dark m-2 col-10 col-md-5 col-xl-2 border-white">
+            <div class="card gallery-image-preview  " data-bs-toggle="modal" data-bs-target="#{{ listimage.slug }}">
+                <img src="{{ listimage.image.url }}" alt="{{ listimage.title }}" class="card-img ">
+                <div class="card-img-overlay text-white m-2">
+                    <h2 class= "card-title">{{ listimage.title }}</h2>
+                    <p class="end-2">{{ listimage.price }} €</p>
+                </div>
+            </div>
+        </div>
+        
+          
+        <div class="modal" id="{{ listimage.slug }}" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <p class="modal-title" id="modalVerticallyCenteredLabel">{{ listimage.title }}</p>
+                  <button type="button" data-bs-dismiss="modal" class="btn-close" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="{{ listimage.image.url}}" alt="">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" data-bs-dismiss="modal" class="btn btn-secondary">Close</button>
+                  <button type="button" class="btn btn-primary">add to basket</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% empty %}
+        <h1>EMPTY</h1>
+        {% endfor %}
+    </div>
+</section>
+
+{%endblock%}
