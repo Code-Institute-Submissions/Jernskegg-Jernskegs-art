@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-DEBUG_DATABASE = False
+DEBUG_DATABASE = True
 
 ALLOWED_HOSTS = ['jernskegg-art.herokuapp.com', '127.0.0.1']
 
@@ -37,6 +37,7 @@ ALLOWED_HOSTS = ['jernskegg-art.herokuapp.com', '127.0.0.1']
 
 INSTALLED_APPS = [
     'gallery',
+    'home',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from home import views as homeView
 from gallery import views as galleryView
+from account import views as AccountView
 
 
 urlpatterns = [
@@ -24,4 +25,5 @@ urlpatterns = [
     path('', homeView.get_home, name='home'),
     path('gallery/', galleryView.imageList.as_view(), name='gallery'),
     path('accounts/', include('allauth.urls')),
+    path('accounts/', AccountView.get_account, name='account'),
 ]

@@ -4,10 +4,10 @@
     border: 0;
 }
 
-body{
+/**body{
     background: grey;
 }
-
+**/
 .hero{
     height: 500px;
     overflow: hidden;

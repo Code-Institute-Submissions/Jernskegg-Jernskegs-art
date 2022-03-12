@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<section class="p-5">
+    <div class="justify-content-center row g-0">
+        <div class="col-12 col-xl-3 bg-secondary ms-xl-1 mb-2 p-4 order-xl-2">
+            <h2>Welcome {{ user.username }}</h2>
+            <div class="row">
+                <a href="">Change Username</a>
+            </div>
+            <div class="row">
+                <a href="">Change E-mail</a>
+            </div>
+            <div class="row">
+                <a href="{% url 'account_change_password' %}">Change Password</a>
+            </div>
+        </div>
+        <div class="col-12 col-xl-5 bg-primary order-xl-1">
+            purchase history
+        </div>
+    </div>
+</section>
+
+{% else %}
+<section class="p-5">
+    <div class="p-5">
+        <h2>Hey There!</h2>
+        <p>Looks look you are not logged in. please log in <a href="{% url 'account_login' %}" class="">here</a></p>
+    </div>
+    
+</section>
+{% endif %}
+
+
+{%endblock%}
