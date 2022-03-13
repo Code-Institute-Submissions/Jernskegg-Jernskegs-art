@@ -11,6 +11,14 @@ The project aims to make an e-commerce webpage, with authorisation and payment m
 
 it's going to to sell my art make myself available for people to make requests or "Commisions" in the art comunity.
 
+# Wireframes
+
+## Rough sketch
+
+![wireframe](docs/wireframes/home.png)
+![wireframe](docs/wireframes/gallery.png)
+![wireframe](docs/wireframes/request.png)
+
 # User Stories
 
     Using a kanban board i am going to use Agile development to work one user story at a time.
