@@ -32,6 +32,9 @@
             {% else %}
             <a href="{% url 'account_login' %}" class="nav-link"> Ceate an account / login</a>
             {% endif %}
+            {% if user.is_staff %}
+            <a href="{% url 'admin:login' %}" class="nav-link">Admin Panel</a>
+            {% endif %}
         </div>
     </nav>
 
