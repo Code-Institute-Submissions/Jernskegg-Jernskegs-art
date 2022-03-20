@@ -9,10 +9,19 @@ class CommentAdmin(admin.ModelAdmin):
 
 class CommissionRequestAdmin(admin.ModelAdmin):
     search_fields = ['title']
+    list_display = (
+        'user_description',
+        'type',
+        'image_size',
+        'price',
+        'date_requested')
+
+    def price(self, obj):
+        return obj.type.price
 
 
 class GenreAdmin(admin.ModelAdmin):
-    search_fields = ['title'],
+    search_fields = ['title']
     list_display = ('title', 'price')
 
 

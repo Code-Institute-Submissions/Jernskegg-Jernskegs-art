@@ -57,7 +57,11 @@ class CommissionRequest(models.Model):
         choices=size_choices,
         max_length=4)
 
-    user_desc = models.TextField()
+    user_description = models.TextField()
+    date_requested = models.DateTimeField(
+        auto_now=True,
+        editable=False
+    )
 
 
 class Comment(models.Model):

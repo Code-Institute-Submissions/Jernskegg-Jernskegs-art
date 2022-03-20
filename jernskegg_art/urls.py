@@ -18,6 +18,7 @@ from django.urls import path, include
 from simple_pages import views as pageView
 from gallery import views as galleryView
 from account import views as AccountView
+from commission import views as CommissionView
 
 
 urlpatterns = [
@@ -27,4 +28,5 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('accounts/', AccountView.get_account, name='account'),
     path('about/', pageView.get_about, name='about'),
+    path('commision/', CommissionView.addRequest, name='request'),
 ]
