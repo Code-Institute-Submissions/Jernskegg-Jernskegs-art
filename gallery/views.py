@@ -1,9 +1,13 @@
-from django.shortcuts import render, get_object_or_404, redirect
+'''Django view file'''
 from django.views import generic
-from gallery.models import imageEntry
+from gallery.models import ImageEntry
 
-class imageList(generic.ListView):
-    model = imageEntry
+
+class ImageList(generic.ListView):
+    '''
+    Class based view to render the model to gallery template
+    '''
+    model = ImageEntry
     context_object_name = 'images'
-    queryset = imageEntry.objects.order_by('-date_posted')
+    queryset = ImageEntry.objects.order_by('-date_posted')
     template_name = 'gallery.html'
