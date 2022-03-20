@@ -37,7 +37,8 @@ ALLOWED_HOSTS = ['jernskegg-art.herokuapp.com', '127.0.0.1']
 
 INSTALLED_APPS = [
     'gallery',
-    'home',
+    'simple_pages',
+    'commission',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
