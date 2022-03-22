@@ -88,3 +88,28 @@
 .gallery-image-preview:hover {
     clip-path: polygon(100% 0, 100% 75%, 75% 100%, 0 100%, 0 0);
 }
+
+.status-PEND {
+    color: rgb(39, 226, 14);
+}
+.status-ORDR {
+    color: rgb(84, 173, 0);
+}
+.status-URWE {
+    color: rgb(42, 40, 165);
+}
+.status-ACPD {
+    color: rgb(189, 231, 0);
+}
+.status-DECL {
+    color: rgb(255, 0, 0);
+}
+.status-IPRR {
+    color: rgb(194, 176, 14);
+}
+.status-DONE {
+    color: rgb(0, 255, 55);
+}
+.status-USRW {
+    color: rgb(22, 0, 224);
+}

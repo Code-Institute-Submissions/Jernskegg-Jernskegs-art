@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import AddCommissionRequest
-from account.views import get_account
+from account.views import GetAccount
 
 # Create your views here.
 
@@ -13,7 +13,7 @@ def addRequest(request):
             new_request = form.save(commit=False)
             new_request.requested_by = request.user
             new_request.save()
-            return redirect(get_account)
+            return redirect('/accounts/')
     else:
         form = AddCommissionRequest
     context = {

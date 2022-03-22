@@ -26,7 +26,7 @@ urlpatterns = [
     path('', pageView.get_home, name='home'),
     path('gallery/', galleryView.ImageList.as_view(), name='gallery'),
     path('accounts/', include('allauth.urls')),
-    path('accounts/', AccountView.get_account, name='account'),
+    path('accounts/', AccountView.GetAccount.as_view(), name='account'),
     path('about/', pageView.get_about, name='about'),
     path('commision/', CommissionView.addRequest, name='request'),
 ]

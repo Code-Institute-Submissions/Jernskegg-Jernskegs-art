@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from django.views import generic
+from commission.models import CommissionRequest
 
 # Create your views here.
 
 
-def get_account(request):
-    return render(request, 'account.html')
+class GetAccount(generic.ListView):
+    model = CommissionRequest
+    context_object_name = 'commission'
+    template_name = 'account.html'
