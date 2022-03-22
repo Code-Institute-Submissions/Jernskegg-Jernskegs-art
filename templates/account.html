@@ -26,7 +26,7 @@
                 <div class="row">
                     <p class="col-12 col-xl text-dark">ORDER ID</p>
                     <p class="col-12 col-xl text-dark">type: {{ list.type }}</p>
-                    <p class="col-12 col-xl status-{{ list.status }}">{{ list.status }}</p>
+                    <p class="col-12 col-xl status-{{ list.status }}">{{ list.get_status_display }}</p>
                     <p class="col-12 col-xl text-dark">{{ list.image_size }}</p>
                     <p class="col-12 col-xl text-dark">{{ list.date_requested }}</p>
                 </div>

@@ -51,7 +51,8 @@ class CommissionRequest(models.Model):
     type = models.ForeignKey(Genre, on_delete=models.SET('Deleted Genre'))
     status = models.CharField(
         choices=status_choices,
-        max_length=4)
+        max_length=4,
+        default='PEND')
 
     image_size = models.CharField(
         choices=size_choices,
