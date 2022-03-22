@@ -4,12 +4,18 @@
 
 <section class="p-5">
     <div class="g-0 row main-gallery justify-content-center" >
+        <div class="row justify-content-center">
+          <a href="{% url 'gallery' %}" class="btn btn-warning m-2 col-2">Sort by newest</a>
+          <a href="{% url 'gallery' %}?sort=price" class="btn btn-warning m-2 col-2">Sort by price</a>
+          <a href="{% url 'gallery' %}?sort=name" class="btn btn-warning m-2 col-2">Sort by Name</a>
+        </div>
         {% for listimage in images %}
+        {% if listimage.hidden == False %}
         <div class="bg-dark m-2 col-10 col-md-5 col-xl-2 border-white">
             <div class="card gallery-image-preview  " data-bs-toggle="modal" data-bs-target="#{{ listimage.slug }}">
                 <img src="{{ listimage.image.url }}" alt="{{ listimage.title }}" class="card-img ">
                 <div class="card-img-overlay text-white m-2">
-                    <h2 class= "card-title">{{ listimage.title }}</h2>
+                    <h2 class= "card-title">{{ listimage.title|title }}</h2>
                     <p class="end-2">{{ listimage.price }} €</p>
                 </div>
             </div>
@@ -33,6 +39,7 @@
               </div>
             </div>
           </div>
+        {% endif %}
         {% empty %}
         <h1>EMPTY</h1>
         {% endfor %}
