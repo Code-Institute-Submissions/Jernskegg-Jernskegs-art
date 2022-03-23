@@ -16,7 +16,7 @@
       <fieldset class="blockLabels">
 
         {% for emailaddress in user.emailaddress_set.all %}
-        <div class="ctrlHolder">
+        <div class="m-2 text-dark bg-white ctrlHolder">
           <label for="email_radio_{{forloop.counter}}" class="{% if emailaddress.primary %}primary_email{%endif%}">
 
             <input id="email_radio_{{forloop.counter}}" type="radio" name="email"
@@ -25,9 +25,9 @@
 
             {{ emailaddress.email }}
             {% if emailaddress.verified %}
-            <span class="verified">{% trans "Verified" %}</span>
+            <span class="p-2 verified">{% trans "Verified" %}</span>
             {% else %}
-            <span class="unverified">{% trans "Unverified" %}</span>
+            <span class="p-2 unverified">{% trans "Unverified" %}</span>
             {% endif %}
             {% if emailaddress.primary %}<span class="primary">{% trans "Primary" %}</span>{% endif %}
           </label>
