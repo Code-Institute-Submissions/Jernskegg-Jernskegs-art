@@ -19,6 +19,7 @@ from simple_pages import views as pageView
 from gallery import views as galleryView
 from account import views as AccountView
 from commission import views as CommissionView
+from cart import views as CartView
 
 
 urlpatterns = [
@@ -29,4 +30,5 @@ urlpatterns = [
     path('accounts/', AccountView.GetAccount.as_view(), name='account'),
     path('about/', pageView.get_about, name='about'),
     path('commision/', CommissionView.addRequest, name='request'),
+    path('cart/', CartView.get_cart, name='cart' )
 ]
