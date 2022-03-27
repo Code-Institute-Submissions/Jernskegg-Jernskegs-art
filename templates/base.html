@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <nav class="row">
+    <nav class="row g-0">
         <div class="col nav bg-dark text-white align-items-center">
             <a href="{% url 'home' %}" class="nav-link">
                 <h2 class="ps-2 pe-2">Jernskeggs art</h2>
@@ -61,6 +61,12 @@
     <!-- Content Goes here -->
     {% endblock content %}
 
+    <section class="row g-0 col-12 p-2 text-center text-white justify-content-center bg-dark">
+        <h6>Do you wish to be notified of new additions and news trough a monthly newsletter?</h6>
+        <form action="">
+            <input class="m-auto form-text text-center" type="email" value="Subscibe to the newsletter" name="email">
+        </form>
+    </section>
     <footer class="row  bg-dark text-warning text-center justify-content-center fs-3 pt-2 g-0">
         <div class="col-1 ms-5 mb-5">
             <a href="https://www.facebook.com/" target="_blank" class="link-warning"><i class="fab fa-facebook-square"

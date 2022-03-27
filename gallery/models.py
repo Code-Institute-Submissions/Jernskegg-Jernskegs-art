@@ -22,6 +22,7 @@ class ImageEntry(models.Model):
     slug = models.SlugField(max_length=255, unique=True)
     date_posted = models.DateTimeField(auto_now=True, editable=False)
     image = CloudinaryField('image')
+    water_marked_image = CloudinaryField('image')
     price = models.DecimalField(decimal_places=2, max_digits=10, default=0)
     hidden = models.BooleanField(default=False)
 
@@ -36,6 +37,9 @@ class ImageEntry(models.Model):
     def __str__(self):
         string_title = str(self.title)
         return string_title
+
+    def get_price(self):
+        return self.price
 
     def save(self):
         self.slug = slugify(self.title)

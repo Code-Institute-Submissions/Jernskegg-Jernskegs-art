@@ -23,6 +23,7 @@ class CommissionRequestAdmin(admin.ModelAdmin):
 class GenreAdmin(admin.ModelAdmin):
     search_fields = ['title']
     list_display = ('title', 'price')
+    list_editable = ('price',)
 
 
 admin.site.register(Genre, GenreAdmin)

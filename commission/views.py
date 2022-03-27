@@ -1,11 +1,10 @@
 from django.shortcuts import render, redirect
 from .forms import AddCommissionRequest
-from account.views import GetAccount
 
 # Create your views here.
 
 
-def addRequest(request):
+def add_request(request):
     setform = AddCommissionRequest
     if request.method == 'POST':
         form = setform(request.POST or None)
