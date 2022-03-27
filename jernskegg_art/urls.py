@@ -30,5 +30,6 @@ urlpatterns = [
     path('accounts/', AccountView.GetAccount.as_view(), name='account'),
     path('about/', pageView.get_about, name='about'),
     path('commision/', CommissionView.addRequest, name='request'),
-    path('cart/', CartView.get_cart, name='cart' )
+    path('cart/', CartView.get_cart, name='cart'),
+    path('cart/add/<item_id>', CartView.add_to_cart, name="add_to_cart"),
 ]

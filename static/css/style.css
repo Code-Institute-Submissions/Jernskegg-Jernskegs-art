@@ -11,6 +11,7 @@
 .hero{
     height: 500px;
     overflow: hidden;
+    margin-top: -5px;
 }
 
 .hero-1{
@@ -92,24 +93,37 @@
 .status-PEND {
     color: rgb(39, 226, 14);
 }
+
 .status-ORDR {
     color: rgb(84, 173, 0);
 }
+
 .status-URWE {
     color: rgb(42, 40, 165);
 }
+
 .status-ACPD {
     color: rgb(189, 231, 0);
 }
+
 .status-DECL {
     color: rgb(255, 0, 0);
 }
+
 .status-IPRR {
     color: rgb(194, 176, 14);
 }
+
 .status-DONE {
     color: rgb(0, 255, 55);
 }
+
 .status-USRW {
     color: rgb(22, 0, 224);
+}
+
+.cart-image{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
 }

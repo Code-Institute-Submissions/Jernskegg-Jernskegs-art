@@ -34,14 +34,18 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" data-bs-dismiss="modal" class="btn btn-secondary">Close</button>
-                  <button type="button" class="btn btn-primary">add to basket</button>
+                  <form class="", action="{% url 'add_to_cart' listimage.id %}" method="POST">
+                    {% csrf_token %} 
+                    <button type="submit" class="btn btn-primary">add to basket</button>
+                  </form>
                 </div>
               </div>
             </div>
           </div>
-        {% endif %}
-        {% empty %}
-        <h1>EMPTY</h1>
+          {% endif %}
+          {% empty %}
+          
+        <h1 class="mt-5 text-center">EMPTY</h1>
         {% endfor %}
     </div>
 </section>

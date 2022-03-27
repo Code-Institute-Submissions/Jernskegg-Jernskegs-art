@@ -4,7 +4,42 @@
 
 <section class="row g-0 justify-content-center text-center">
     <div class="text-white bg-dark col-11 col-md-6  m-5 p-5">
-        shopping cart goes here
+        {% if cart_items %}
+        <h2>Products in your cart</h2>
+        {% for item in cart_items %}
+            <div class="row rounded bg-white m-2 text-black align-items-center">
+                <div class="g-0 col-md-2 col-12">
+                    <img src="{{ item.gallery_item.image.url }}" alt="{{ item.gallery_item.title }}" class="rounded-1 cart-image">
+                </div>
+                <div class="col-5">
+                    <p class="text-center">{{ item.gallery_item.title }}</p>
+                </div>
+                <div class="col-4">
+                    <p class="text-center">{{ item.gallery_item.price }}</p>
+                </div>
+                <div class="col-1">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+                
+            </div>
+                {% endfor %}
+            <div class="row rounded bg-white m-2 text-black align-items-center">
+                <div class="col-2"><!-- Empty --></div>
+                <div class="col-5"><p>Total:</p></div>
+                <div class="col-4"><p>{{ cart_total }}</p></div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-3">
+                    <button class="btn btn-outline-warning">Continue shopping</button>
+                </div>
+                <div class="col-3">
+                    <button class="btn btn-warning"><i class="fa-brands fa-cc-stripe"></i> Checkout {{ cart_total }} € with Stripe </button>
+                </div>
+            </div>
+        {% else %}
+        <p>Your cart is empty,</p>
+        <p>to add items to your shopping cart go to <a href="{% url 'gallery' %}" class="text-white">gallery</a> and press add to cart button</p>
+        {% endif %}
     </div>
 </section>
 
