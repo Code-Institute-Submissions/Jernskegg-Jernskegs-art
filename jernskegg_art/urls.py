@@ -32,4 +32,9 @@ urlpatterns = [
     path('commision/', CommissionView.addRequest, name='request'),
     path('cart/', CartView.get_cart, name='cart'),
     path('cart/add/<item_id>', CartView.add_to_cart, name="add_to_cart"),
+    path(
+        'cart/remove/<item_id>',
+        CartView.remove_from_cart,
+        name="remove_from_cart"
+        ),
 ]

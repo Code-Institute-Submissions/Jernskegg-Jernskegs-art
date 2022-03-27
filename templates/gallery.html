@@ -26,7 +26,7 @@
             <div class="modal-dialog modal-dialog-centered modal-fullscreen">
               <div class="modal-content">
                 <div class="modal-header">
-                  <p class="modal-title" id="modalVerticallyCenteredLabel">{{ listimage.title }}</p>
+                  <p class="modal-title">{{ listimage.title }}</p>
                   <button type="button" data-bs-dismiss="modal" class="btn-close" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -34,7 +34,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" data-bs-dismiss="modal" class="btn btn-secondary">Close</button>
-                  <form class="", action="{% url 'add_to_cart' listimage.id %}" method="POST">
+                  <form class="" action="{% url 'add_to_cart' listimage.id %}" method="POST">
                     {% csrf_token %} 
                     <button type="submit" class="btn btn-primary">add to basket</button>
                   </form>
