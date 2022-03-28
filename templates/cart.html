@@ -41,15 +41,12 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-3">
-                <button class="btn btn-outline-warning">Continue shopping</button>
+                <a href="{% url 'gallery' %}" class="btn btn-outline-warning">Continue shopping</a>
             </div>
-            <form action="POST">
-
-                <div class="col-3">
-                    <button class="btn btn-warning"><i class="fa-brands fa-cc-stripe"></i> Checkout {{ cart_total }} €
-                        with Stripe </button>
-                </div>
-            </form>
+            <div class="col-3">
+                <a href="{% url 'checkout' %}" class="btn btn-warning"><i class="fa-brands fa-cc-stripe"></i> Checkout
+                    {{ cart_total }} € </a>
+            </div>
         </div>
         {% else %}
         <p>Your cart is empty,</p>
