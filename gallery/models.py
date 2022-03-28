@@ -38,9 +38,6 @@ class ImageEntry(models.Model):
         string_title = str(self.title)
         return string_title
 
-    def get_price(self):
-        return self.price
-
     def save(self):
         self.slug = slugify(self.title)
         super(ImageEntry, self).save()
