@@ -20,6 +20,7 @@ from gallery import views as galleryView
 from account import views as AccountView
 from commission import views as CommissionView
 from cart import views as CartView
+from checkout import views as CheckoutView
 
 
 urlpatterns = [
@@ -31,10 +32,19 @@ urlpatterns = [
     path('about/', pageView.get_about, name='about'),
     path('commision/', CommissionView.add_request, name='request'),
     path('cart/', CartView.get_cart, name='cart'),
-    path('cart/add/<item_id>', CartView.add_to_cart, name="add_to_cart"),
+    path('cart/add/<item_id>', CartView.add_to_cart, name='add_to_cart'),
+
     path(
         'cart/remove/<item_id>',
         CartView.remove_from_cart,
         name="remove_from_cart"
+        ),
+
+    path('checkout/', CheckoutView.image_checkout, name='checkout'),
+
+    path(
+        'request_checkout/',
+        CheckoutView.request_checkout,
+        name='request_checkout'
         ),
 ]
