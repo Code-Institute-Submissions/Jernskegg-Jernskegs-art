@@ -83,11 +83,15 @@
 .gallery-image-preview {
     clip-path: polygon(100% 0, 100% 100%, 100% 100%, 0 100%, 0 0);
     transition: all 0.25s;
-    
 }
 
 .gallery-image-preview:hover {
     clip-path: polygon(100% 0, 100% 75%, 75% 100%, 0 100%, 0 0);
+}
+
+.card-image-size{
+    height: 250px !important;
+    object-fit: cover !important;
 }
 
 .status-PEND {
@@ -123,6 +127,12 @@
 }
 
 .cart-image{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.checkout-image{
     width: 150px;
     height: 150px;
     object-fit: cover;

@@ -1,19 +1,54 @@
 {% extends "base.html" %}
 
-{% block content %}
+{% load my_filters %}
 
+{% block content %}
 
 <section class="p-md-5 p-1">
     <div class="justify-content-center row g-0">
-        <div class="col-12 col-xl-3 text-white bg-dark ms-xl-1 text-center mb-2 p-4 order-xl-2">
+        <div class="col-12 col-xl-7 text-white bg-dark ms-xl-1 text-center mb-2 p-4 order-xl-2">
             <h2>Checkout items</h2>
-        </div>
-        
-        <div class="col-12 col-xl-7 text-center bg-dark order-xl-1">
-            <h2 class="text-white">Checkout details</h2>
-            <div class="p-3 bg-white m-2">
+            <div class="row rounded bg-white m-2 text-black align-items-center">
+                {% for item in cart_items %}
+                <div class="g-0 col-md-2 col-12">
+                    <img src="{{ item.gallery_item.image.url }}" alt="{{ item.gallery_item.title }}"
+                        class="rounded-1 checkout-image">
+                </div>
+                <div class="col-5">
+                    <p class="text-center">{{ item.gallery_item.title }}</p>
+                </div>
+                <div class="col-4">
+                    <p class="text-center">{{ item.gallery_item.price }}</p>
+                </div>
+                {% endfor %}
             </div>
         </div>
+        
+        <div class="col-12 col-xl-3 text-center bg-dark order-xl-1">
+            <h2 class="text-white">Checkout details</h2>
+            {% csrf_token %}
+            {% if image_order_form %}
+            {% for field in image_order_form %}
+            <div class="row text-white justify-content-center">
+                <div class="col-10 form-label">{{field.label_tag}}</div>
+                <div class="col-10">
+                    {% if field.widget_type == 'select' %}
+                    {{ field | add_class:'form-select'}}
+                    {% else %}
+                    {{ field | add_class:'form-control'}}
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <p>Swedish inner fury slamming on the keyboard</p>
+            {% endif %}
+
+
+            <div class="col-12 bg-white mt-5 pb-5">
+            </div>
+        </div>
+    </div>
 </section>
 
 {%endblock%}
