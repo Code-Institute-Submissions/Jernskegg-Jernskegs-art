@@ -9,6 +9,9 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+# flake8: noqa: E501
+# This file is generated and there for I will ignore convention E501 
+# to keep the optimization of the file
 
 from pathlib import Path
 import os
@@ -27,8 +30,10 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-DEBUG_DATABASE = False
+DEBUG = bool(os.environ.get('DEBUG'))
+print('Debug is set to:', DEBUG)
+DEBUG_DATABASE = bool(os.environ.get('DEBUG_DATABASE'))
+print('Database Debug is set to:', DEBUG_DATABASE)
 
 ALLOWED_HOSTS = ['jernskegg-art.herokuapp.com', '127.0.0.1']
 
@@ -61,7 +66,6 @@ SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-
 
 
 MIDDLEWARE = [
@@ -167,5 +171,5 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
-DEFAUL_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS', '')
+DEFAUL_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER', '')

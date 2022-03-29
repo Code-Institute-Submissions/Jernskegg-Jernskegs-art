@@ -1,7 +1,7 @@
 import uuid
 from django.db import models
 from django.db.models import Sum
-
+from django.contrib.auth.models import User
 from gallery.models import ImageEntry
 from commission.models import CommissionRequest
 
@@ -21,6 +21,11 @@ class ImageOrderInfo(models.Model):
     date_ordered = models.DateField(auto_now_add=True, editable=False)
     email_address = models.EmailField(max_length=255, null=False,)
     phone_number = models.CharField(max_length=15)
+    user = models.ForeignKey(
+        User,
+        blank=False,
+        default=2,
+        on_delete=models.SET(2))
 
     order_total = models.DecimalField(
         max_digits=32,
@@ -99,6 +104,11 @@ class RequestOrderInfo(models.Model):
     date_ordered = models.DateField(auto_now_add=True, editable=False)
     email_address = models.EmailField(max_length=255, null=False,)
     phone_number = models.CharField(max_length=15)
+    user = models.ForeignKey(
+        User,
+        blank=False,
+        default=2,
+        on_delete=models.SET(2))
 
     order_total = models.DecimalField(
         max_digits=32,

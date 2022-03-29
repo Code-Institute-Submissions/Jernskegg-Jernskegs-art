@@ -22,6 +22,7 @@ class ImageOrderAdmin(admin.ModelAdmin):
         'date_ordered',
         'phone_number',
         'order_total',
+        'user',
         )
 
     list_display = ('order_id', 'date_ordered', 'first_name',
@@ -42,6 +43,7 @@ class RequestOrderAdmin(admin.ModelAdmin):
         'date_ordered',
         'phone_number',
         'order_total',
+        'user'
         )
 
     list_display = ('order_id', 'date_ordered', 'first_name',
