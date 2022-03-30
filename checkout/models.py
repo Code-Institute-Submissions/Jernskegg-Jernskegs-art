@@ -19,8 +19,8 @@ class ImageOrderInfo(models.Model):
     first_name = models.CharField(max_length=64, null=False, blank=False)
     last_name = models.CharField(max_length=64, null=False, blank=False)
     date_ordered = models.DateField(auto_now_add=True, editable=False)
-    email_address = models.EmailField(max_length=255, null=False,)
-    phone_number = models.CharField(max_length=15)
+    email_address = models.EmailField(max_length=255, null=False, blank=False)
+    phone_number = models.CharField(max_length=15, blank=False)
     user = models.ForeignKey(
         User,
         blank=False,
@@ -42,7 +42,7 @@ class ImageOrderInfo(models.Model):
 
     def save(self):
         if not self.order_id:
-            self.order_id = generate_order_id()
+            self.order_id = 'I-'+generate_order_id()
         super().save()
 
     def __str__(self):
@@ -123,7 +123,7 @@ class RequestOrderInfo(models.Model):
 
     def save(self):
         if not self.order_id:
-            self.order_id = generate_order_id()
+            self.order_id = 'R-'+generate_order_id()
         self.save()
 
     def __str__(self):
