@@ -21,6 +21,7 @@ from account import views as AccountView
 from commission import views as CommissionView
 from cart import views as CartView
 from checkout import views as CheckoutView
+from checkout.webhooks import webhook
 
 
 urlpatterns = [
@@ -45,6 +46,13 @@ urlpatterns = [
     path(
         'request_checkout/',
         CheckoutView.request_checkout,
-        name='request_checkout'
+        name='request_checkout',
         ),
+
+    path(
+        'checkout_success/<order_id>',
+        CheckoutView.checkout_success,
+        name='checkout_success',
+        ),
+    path('checkout/wh/', webhook, name='webhook')
 ]

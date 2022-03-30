@@ -31,11 +31,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(os.environ.get('DEBUG'))
-print('Debug is set to:', DEBUG)
 DEBUG_DATABASE = bool(os.environ.get('DEBUG_DATABASE'))
-print('Database Debug is set to:', DEBUG_DATABASE)
 
-ALLOWED_HOSTS = ['jernskegg-art.herokuapp.com', '127.0.0.1']
+allowed_host_list = os.environ.get('ALLOWED_HOSTS').split(',')
+ALLOWED_HOSTS = allowed_host_list
 
 
 # Application definition
@@ -173,3 +172,9 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS', '')
 DEFAUL_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER', '')
+
+# Stripe
+STRIPE_CURRENCY = os.environ.get('STRIPE_CURRENCY')
+STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY','')
+STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET','')
