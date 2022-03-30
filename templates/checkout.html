@@ -27,38 +27,39 @@
         </div>
 
         <div class="col-12 col-xl-3 text-center bg-dark order-xl-1">
-            <h2 class="text-white">Checkout details</h2>
-            {% csrf_token %}
-            {% if image_order_form %}
-            {% for field in image_order_form %}
-            <div class="row text-white justify-content-center">
-                <div class="col-10 form-label">{{field.label_tag}}</div>
-                <div class="col-10">
-                    {% if field.widget_type == 'select' %}
-                    {{ field | add_class:'form-select'}}
-                    {% else %}
-                    {{ field | add_class:'form-control'}}
-                    {% endif %}
+            <form id="payment-form" class="" action="{% url 'checkout' %}" method="post">
+                <h2 class="text-white">Checkout details</h2>
+                {% csrf_token %}
+                {% if image_order_form %}
+                {% for field in image_order_form %}
+                <div class="row text-white justify-content-center">
+                    <div class="col-10 form-label">{{field.label_tag}}</div>
+                    <div class="col-10">
+                        {% if field.widget_type == 'select' %}
+                        {{ field | add_class:'form-select'}}
+                        {% else %}
+                        {{ field | add_class:'form-control'}}
+                        {% endif %}
+                    </div>
                 </div>
-            </div>
-            {% endfor %}
-            {% else %}
-            <p>Swedish inner fury slamming on the keyboard</p>
-            {% endif %}
+                {% endfor %}
+                {% else %}
+                <p>Swedish inner fury slamming on the keyboard</p>
+                {% endif %}
 
 
-            <div class="col-12 bg-white mt-5 pb-5">
-            </div>
-
-            <form id="payment-form" class="p-5">
-                <div id="card-element" class="bg-white p-3" >
-                    <!-- Elements will create input elements here -->
+                <div class="col-12 bg-white mt-5 pb-5">
                 </div>
 
-                <!-- We'll put the error messages in this element -->
-                <div id="card-errors" role="alert"></div>
 
-                <button id="submit" class="stripe-button mt-3">Submit Payment</button>
+                <div class="p-5">
+                    <div id="card-element" class="bg-white p-3">
+                        <!-- Elements will create input elements here -->
+                    </div>
+                    <!-- We'll put the error messages in this element -->
+                    <div id="card-errors" role="alert"></div>
+                    <button id="submit-button" class="stripe-button mt-3">Submit Payment</button>
+                </div>
             </form>
         </div>
     </div>

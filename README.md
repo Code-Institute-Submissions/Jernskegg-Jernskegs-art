@@ -87,5 +87,8 @@ It is like all on in framework or "Batteries included philosophy framework"
 
 # How to host this project.
 
+# credits
+
+  Some parts of the checkout have been taken from Stripes docs.
 
 # My personal achievements and what I feel I need to work on.2

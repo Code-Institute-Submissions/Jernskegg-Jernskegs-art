@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% load my_filters %}
+{% load static %}
+
+{% block content %}
+
+<section class="p-md-5 p-1">
+    <div class="justify-content-center row g-0">
+        <div class="col-12 col-xl-7 text-white bg-dark ms-xl-1 text-center mb-2 p-4 order-xl-2">
+            <h2>Order Succesfull</h2>
+            <p>Order: {{ checkout_order.order_id }}</p>
+            {% if user.is_authenticated and user.email == checkout_order.email_address %}
+            <p>Your order confirmation has been sent to {{ checkout_order.email_address }}</p> 
+            {% else %}
+            <p>Your order confirmation has been sent to your email</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+{%endblock%}
