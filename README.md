@@ -44,6 +44,11 @@ it's going to to sell my art make myself available for people to make requests o
 
 # Design and planning
 
+## Bussiness model
+
+  I've tried to employ a where I can uppload my picture, and then sell them for user to use them with having to atribute me,
+  Aswell being able to take requests, Which I left Free for now till the requests rack up as a "spead the word" method.
+
 ## python
 
 Python is an easy and basic programming language, but it is powerful with libraries to bring out capabilities to use in multiple
@@ -55,6 +60,11 @@ Django is a framework that is made to speed up the process of building web appli
 It is like all on in framework or "Batteries included philosophy framework"
 
 # testing
+
+  W3C HTML validated, No errors
+  JShint Validated. 1 warning "Stripe variable undefined", Dissregarding this because this variable is being used by Stripes main JS
+  Jigsaw css validated, No errors
+  Pep8 validated, No errors expect for Generated files,
 
 # Deployment
 
@@ -85,10 +95,11 @@ It is like all on in framework or "Batteries included philosophy framework"
 
 - Now you have your deployed page. Now you can test if everything works as it should or send the links to your friends to show off those accomplishments you have made.
 
-# How to host this project.
+- I have Attached a Example.Env.py with intructions in it
 
 # credits
 
   Some parts of the checkout have been taken from Stripes docs.
+  checkout and cart app was coded along with Botique-ado from Code Institute, Some similitaries may occur and those credits go to Code institute
 
 # My personal achievements and what I feel I need to work on.2
