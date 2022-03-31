@@ -4,7 +4,6 @@
 
 {% block content %}
 
-{% if user.is_authenticated %}
 <section class="row g-0 justify-content-center text-center">
     <div class="text-white bg-dark col-11 col-md-6  m-5 p-5">
         <h2>Request a commission</h2>
@@ -32,25 +31,5 @@
 
     </div>
 </section>
-{% else %}
-<section class="row g-0 justify-content-center text-center">
-    <div class="text-white bg-dark col-11 col-md-6  m-5 p-5">
-        <h2>To be able to make a request you need be signed in</h2>
-        <hr>
-        <p>Here you will be able to make a request for me to create you artwork.</p>
-        <p>When you are logged in you will be to see a input form where you can specify your requirements and specifications as well being able to</p>
-        <div class="row">
-            <div class="col">
-                <a href="{% url 'account_login' %}" class="nav-link">login</a>
-            </div>
-            <div class="col">
-                <a href="{{ signup_url }}" class="nav-link">sign up</a>
-            </div>
-        </div>
 
-
-
-    </div>
-</section>
-{% endif%}
 {%endblock%}
