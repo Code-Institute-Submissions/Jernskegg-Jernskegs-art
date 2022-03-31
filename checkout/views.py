@@ -1,10 +1,18 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
-from .forms import ImageOrderForm, RequestOrderForm
-import stripe
-from cart.contexts import cart_contents
+'''
+Checkout view
+'''
+from django.shortcuts import (render, redirect, reverse,
+                              get_object_or_404, HttpResponse)
 from django.conf import settings
-from .models import ImageOrderLineItem, ImageOrderInfo, RequestOrderInfo
+from django.views.decorators.http import require_POST
+
+from .forms import ImageOrderForm, RequestOrderForm
+from cart.contexts import cart_contents
+from .models import ImageOrderLineItem, ImageOrderInfo
 from gallery.models import ImageEntry
+
+import json
+import stripe
 
 # import Stripe keys from settings
 stripe_currency = settings.STRIPE_CURRENCY
@@ -12,12 +20,28 @@ stripe_public_key = settings.STRIPE_PUBLIC_KEY
 stripe_secret_key = settings.STRIPE_SECRET_KEY
 
 
+@require_POST
+def image_checkout_data(request):
+    try:
+        client_id = request.POST.get('client_secret').split('_secret')[0]
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        stripe.PaymentIntent.modify(client_id, metadata={
+            'cart': json.dumps(request.session.get('cart', []))
+        })
+        return HttpResponse(status=200)
+    except Exception as e:
+        return HttpResponse(content=e, status=400)
+
+
 def image_checkout(request):
     '''
-    this renders the checkout page
+    this renders the checkout page, the form and the stripe elements.
     '''
     if request.method == 'POST':
         cart = request.session.get('cart', [])
+
+        # Assigning fields for form
+
         form_data = {
             'first_name': request.POST['first_name'],
             'last_name': request.POST['last_name'],
@@ -25,14 +49,24 @@ def image_checkout(request):
             'phone_number': request.POST['phone_number'],
         }
         image_order_form = ImageOrderForm(form_data)
+
+        # Check if form is valid
+
         if image_order_form.is_valid():
             image_order = image_order_form.save(commit=False)
+            image_order.client_id = request.POST.get(
+                'client_secret').split('_secret')[0]
+            # Add user id, if user id is 'None' Assign '2' For anon user
+
             if request.user.id is None:
                 image_order.user.id = 2
                 image_order.save()
             else:
                 image_order.user.id = request.user.id
                 image_order.save()
+
+            # Itterate trough items in cart to add them to order as line items
+
             for item_id in cart:
                 try:
                     image_item = ImageEntry.objects.get(id=item_id)
@@ -41,6 +75,9 @@ def image_checkout(request):
                         image_product=image_item,
                     )
                     image_line_item.save()
+
+                # Incase image doesn't exist stop the order and remove it
+
                 except ImageEntry.DoesNotExist:
                     image_order.delete()
                     return redirect('cart')
@@ -89,6 +126,8 @@ def request_checkout(request):
     )
     context = {
         'request_order_form': request_order_form,
+        'stripe_public_key': stripe_public_key,
+        'client_secret': intent.client_secret,
     }
 
     return render(request, 'checkout.html', context)

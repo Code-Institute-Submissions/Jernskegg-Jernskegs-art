@@ -12,7 +12,7 @@ class ImageOrderLineAdmin(admin.TabularInline):
 class ImageOrderAdmin(admin.ModelAdmin):
     inlines = (ImageOrderLineAdmin,)
 
-    readonly_fields = ('order_id', 'date_ordered', 'order_total',)
+    readonly_fields = ('order_id', 'date_ordered', 'order_total', 'client_id',)
 
     fields = (
         'order_id',
@@ -23,17 +23,23 @@ class ImageOrderAdmin(admin.ModelAdmin):
         'phone_number',
         'order_total',
         'user',
+        'client_id',
         )
 
-    list_display = ('order_id', 'date_ordered', 'first_name',
-                    'last_name', 'order_total')
+    list_display = (
+        'order_id',
+        'date_ordered',
+        'first_name',
+        'last_name',
+        'order_total',
+        )
 
     ordering = ('-date_ordered',)
 
 
 class RequestOrderAdmin(admin.ModelAdmin):
 
-    readonly_fields = ('order_id', 'date_ordered', 'order_total',)
+    readonly_fields = ('order_id', 'date_ordered', 'order_total', 'client_id',)
 
     fields = (
         'order_id',
@@ -43,11 +49,17 @@ class RequestOrderAdmin(admin.ModelAdmin):
         'date_ordered',
         'phone_number',
         'order_total',
-        'user'
+        'user',
+        'client_id',
         )
 
-    list_display = ('order_id', 'date_ordered', 'first_name',
-                    'last_name', 'order_total')
+    list_display = (
+        'order_id',
+        'date_ordered',
+        'first_name',
+        'last_name',
+        'order_total',
+        )
 
     ordering = ('-date_ordered',)
 

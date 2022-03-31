@@ -54,5 +54,12 @@ urlpatterns = [
         CheckoutView.checkout_success,
         name='checkout_success',
         ),
-    path('checkout/wh/', webhook, name='webhook')
+
+    path('checkout/wh/', webhook, name='webhook'),
+
+    path(
+        'checkout/image_checkout_data/',
+        CheckoutView.image_checkout_data,
+        name='image_checkout_data'
+        ),
 ]

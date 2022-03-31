@@ -30,7 +30,6 @@
             <form id="payment-form" class="" action="{% url 'checkout' %}" method="post">
                 <h2 class="text-white">Checkout details</h2>
                 {% csrf_token %}
-                {% if image_order_form %}
                 {% for field in image_order_form %}
                 <div class="row text-white justify-content-center">
                     <div class="col-10 form-label">{{field.label_tag}}</div>
@@ -43,10 +42,6 @@
                     </div>
                 </div>
                 {% endfor %}
-                {% else %}
-                <p>Swedish inner fury slamming on the keyboard</p>
-                {% endif %}
-
 
                 <div class="col-12 bg-white mt-5 pb-5">
                 </div>
@@ -59,6 +54,7 @@
                     <!-- We'll put the error messages in this element -->
                     <div id="card-errors" role="alert"></div>
                     <button id="submit-button" class="stripe-button mt-3">Submit Payment</button>
+                    <input type="hidden" value="{{client_secret}}" name="client_secret">
                 </div>
             </form>
         </div>

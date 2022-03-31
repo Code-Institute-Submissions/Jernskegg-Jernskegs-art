@@ -21,6 +21,8 @@ class ImageOrderInfo(models.Model):
     date_ordered = models.DateField(auto_now_add=True, editable=False)
     email_address = models.EmailField(max_length=255, null=False, blank=False)
     phone_number = models.CharField(max_length=15, blank=False)
+    client_id = models.CharField(max_length=255, null=False,
+                                 blank=False, default='')
     user = models.ForeignKey(
         User,
         blank=False,
@@ -37,10 +39,9 @@ class ImageOrderInfo(models.Model):
     def update_total(self):
         self.order_total = self.image_lineitems.aggregate(
             Sum('image_lineitem_total'))['image_lineitem_total__sum'] or 0
-        print(self.order_total)
         self.save()
 
-    def save(self):
+    def save(self, *args, **kwargs):
         if not self.order_id:
             self.order_id = 'I-'+generate_order_id()
         super().save()
@@ -104,6 +105,8 @@ class RequestOrderInfo(models.Model):
     date_ordered = models.DateField(auto_now_add=True, editable=False)
     email_address = models.EmailField(max_length=255, null=False,)
     phone_number = models.CharField(max_length=15)
+    client_id = models.CharField(max_length=255, null=False,
+                                 blank=False, default='')
     user = models.ForeignKey(
         User,
         blank=False,
@@ -121,7 +124,7 @@ class RequestOrderInfo(models.Model):
         self.order_total = self.request_order.price
         self.save()
 
-    def save(self):
+    def save(self, *args, **kwargs):
         if not self.order_id:
             self.order_id = 'R-'+generate_order_id()
         self.save()
