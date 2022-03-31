@@ -19,44 +19,62 @@
     </div>
 </section>
 
-<section class="row p-5 justify-content-center g-0">
+<section class="row p-5 text-center justify-content-center g-0">
     <h2>Newest addition</h2>
-    <div>
-        image
-        image text
+    <div class="row g-0 P-3 justify-content-center">
+        {% for listimage in images %}
+        {% if listimage.hidden == False %}
+        <div class="col-1 ms-3">
+            <img class="checkout-image" src="{{ listimage.water_marked_image.url}}" alt="{{ listimage.title }}">
+        </div>
+        {% endif %}
+        {% empty %}
+          
+        <h1 class="mt-5 text-center">EMPTY</h1>
+        {% endfor %}
     </div>
-    <a href="">Click here to read more</a>
+    <a class="m-2" href="{% url 'gallery' %}">View all images</a>
 </section>
 
 <section class="row p-5 bg-dark text-white justify-content-center g-0">
     <div class="col">
         <h2>Requests?</h2>
-        <p>
-            Can'ertt really find what yoertu ertare looking ertfor, I am able terterto do rtertequests so you can get
-            what you need
-        </p>
-        <a href="">Click here to read more</a>
+        <p><b>Time-Limited Deal!</b></p>
+        <p>At the moment I am doing free commisions so that I can expand my bussines</p>
+        <p> Do you need something custom made, Or do You want a art piece of your online avatar, don't hesitate to make an order</p>
+        <a href="{% url 'request' %}">Make a request</a>
     </div>
 </section>
 
 <section class="row p-5 bg-warning justify-content-center g-0">
-    <h2>?</h2>
+    <h2>About me</h2>
     <p>
-        I am a 3d redering ennthusiast and I love ngame art work.
-        On this page Irt am goingrt to show of my work thamt I've werorked, wheter it be game assets, 2d concept art,
-        Logo
-        design
+        I am a 3d redering ennthusiast and I love game art work.
+        On this page I am going to show my art that I've made
     </p>
-    <a href="">Click here to read more</a>
+       <p> Here are some examples off what you can find here </p>
+        <div class="p-2">
+            <ul>
+                <li>3D renderings</li>
+                <li>Photos</li>
+                <li>Sketches</li>
+                <li>Concept art</li>
+                <li>3D models</li>
+                <li>Landscape paintings</li>
+                <li>Logo design</li>
+            </ul>
+        </div>
+        <p>All the images seen on this page can be purchased so you can use it without credits on your own projects</p>
+    <a href="{% url 'about' %}">Click here to read more</a>
 </section>
 
 <section class="row g-0 p-5 justify-content-center g-0">
     <div class="col">
         <h2>Contact?</h2>
         <p>
-            Do you have. any questions, please do.n't hesitate to contac.t me
+            Do you have any questions, please don't hesitate to contact me
         </p>
-        <a href="">Click here to read more</a>
+        <a href="{% url 'contact' %}">Contact me</a>
     </div>
 </section>
 

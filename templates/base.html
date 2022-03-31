@@ -7,11 +7,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Art made by jernskegg">
+    <meta name="keywords"
+        content="Art, 3D, Commisions, Request, Artwork, Concept art, Logos, logo, 3D rendering, Blender">
     <title>Jernskeggs Art </title>
     <script src="https://kit.fontawesome.com/be9f637dd0.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
     <script src="https://js.stripe.com/v3/"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
@@ -25,7 +32,7 @@
             <a href="{% url 'gallery' %}" class="nav-link">Gallery</a>
             <a href="{% url 'request' %}" class="nav-link">Request</a>
             <a href="{% url 'about' %}" class="nav-link">About</a>
-            <a href="" class="nav-link">Contact</a>
+            <a href="{% url 'contact' %}" class="nav-link">Contact</a>
         </div>
         <div class="col d-flex bg-dark float-end align-items-center justify-content-end">
 
@@ -61,15 +68,26 @@
     <!-- Content Goes here -->
     {% endblock content %}
 
-    <section class="row g-0 col-12 p-2 text-center text-white justify-content-center bg-dark">
+    <section class="row g-0 p-2 text-center text-white justify-content-center bg-dark">
         <h6>Do you wish to be notified of new additions and news trough a monthly newsletter?</h6>
-        <form action="">
-            <input class="m-auto form-text text-center" type="email" value="Subscibe to the newsletter" name="email">
+        <form class="" action="" method="post">
+            {% csrf_token %}
+
+                <div class="row g-0 justify-content-center">
+                    <div class="col-3">
+                        <input class="form-text text-center form-control" type="email"
+                            placeholder="Subscibe to the newsletter" name="newsletter-email">
+                    </div>
+                    <div class="col-1">
+                        <button type="submit" class="btn btn-outline-secondary">Sign up!</button>
+                    </div>
+                </div>
+
         </form>
     </section>
     <footer class="row  bg-dark text-warning text-center justify-content-center fs-3 pt-2 g-0">
         <div class="col-1 ms-5 mb-5">
-            <a href="https://www.facebook.com/" target="_blank" class="link-warning"><i class="fab fa-facebook-square"
+            <a href="https://www.https://www.facebook.com/Jernskegg-art-100805775935214.com/" target="_blank" class="link-warning"><i class="fab fa-facebook-square"
                     aria-hidden="true"></i></a>
         </div>
         <div class="col-1 ">
@@ -86,7 +104,7 @@
                     aria-hidden="true"></i></a>
         </div>
     </footer>
-    
+
 </body>
 
 </html>

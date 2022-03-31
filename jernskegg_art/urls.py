@@ -26,22 +26,24 @@ from checkout.webhooks import webhook
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', pageView.get_home, name='home'),
+    path('', pageView.GetHome.as_view(), name='home'),
+    path('newsletter', pageView.sign_newsleter, name='add_to_newsletter'),
     path('gallery/', galleryView.ImageList.as_view(), name='gallery'),
     path('accounts/', include('allauth.urls')),
     path('accounts/', AccountView.GetAccount.as_view(), name='account'),
     path('about/', pageView.get_about, name='about'),
+    path('contact/', pageView.get_contact, name='contact'),
     path('commision/', CommissionView.add_request, name='request'),
     path('cart/', CartView.get_cart, name='cart'),
     path('cart/add/<item_id>', CartView.add_to_cart, name='add_to_cart'),
+    path('checkout/', CheckoutView.image_checkout, name='checkout'),
+    path('checkout/wh/', webhook, name='webhook'),
 
     path(
         'cart/remove/<item_id>',
         CartView.remove_from_cart,
         name="remove_from_cart"
         ),
-
-    path('checkout/', CheckoutView.image_checkout, name='checkout'),
 
     path(
         'request_checkout/',
@@ -55,7 +57,6 @@ urlpatterns = [
         name='checkout_success',
         ),
 
-    path('checkout/wh/', webhook, name='webhook'),
 
     path(
         'checkout/image_checkout_data/',

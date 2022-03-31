@@ -13,7 +13,6 @@ def add_to_cart(request, item_id):
     cart = request.session.get('cart', [])
 
     if int(item_id) not in cart:
-        print(cart)
         cart.append(int(item_id))
         request.session['cart'] = cart
         return redirect('gallery')

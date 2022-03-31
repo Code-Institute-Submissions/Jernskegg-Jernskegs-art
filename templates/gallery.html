@@ -13,7 +13,7 @@
         {% if listimage.hidden == False %}
         <div class="bg-dark m-2 col-10 col-md-5 col-xl-2 border-white">
             <div class="card gallery-image-preview  " data-bs-toggle="modal" data-bs-target="#{{ listimage.slug }}">
-                <img src="{{ listimage.image.url }}" alt="{{ listimage.title }}" class="card-img card-image-size">
+                <img src="{{ listimage.water_marked_image.url }}" alt="{{ listimage.title }}" class="card-img card-image-size">
                 <div class="card-img-overlay text-white m-2">
                     <h2 class= "card-title">{{ listimage.title|title }}</h2>
                     <p class="end-2">{{ listimage.price }} €</p>
@@ -30,7 +30,7 @@
                   <button type="button" data-bs-dismiss="modal" class="btn-close" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <img src="{{ listimage.image.url}}" alt="">
+                    <img src="{{ listimage.water_marked_image.url}}" alt="{{ listimage.title }}">
                 </div>
                 <div class="modal-footer">
                   <button type="button" data-bs-dismiss="modal" class="btn btn-secondary">Close</button>

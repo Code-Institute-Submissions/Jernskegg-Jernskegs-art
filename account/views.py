@@ -1,6 +1,5 @@
 ''' Account view models '''
 from django.views import generic
-from django.shortcuts import render
 from commission.models import CommissionRequest
 
 # Create your views here.

@@ -22,15 +22,3 @@ class ImageList(generic.ListView):
         else:
             queryset = super().get_queryset()
             return queryset.order_by('-date_posted')
-
-    # def get_queryset(self):
-    #     try:
-    #         if 'price' in self.request.GET.get('sort'):
-    #             queryset = super().get_queryset()
-    #             return queryset.order_by('price')
-    #         elif 'name' in self.request.GET.get('sort'):
-    #             queryset = super().get_queryset()
-    #             return queryset.order_by('title')
-    #     except TypeError:
-    #         queryset = super().get_queryset()
-    #         return queryset.order_by('-date_posted')
