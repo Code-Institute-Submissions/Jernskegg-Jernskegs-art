@@ -44,9 +44,7 @@ def get_contact(request):
 
 def sign_newsleter(request):
     if request.method == 'POST':
-        if 'newsletter-email' in request.POST:
-            form = AddNewsletter
-            form.email_address = request.POST['newsletter-email']
-            if form.is_valid():
-                form.save()
-                return redirect('home')
+        form = AddNewsletter(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')

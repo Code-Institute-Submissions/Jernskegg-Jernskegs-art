@@ -70,13 +70,13 @@
 
     <section class="row g-0 p-2 text-center text-white justify-content-center bg-dark">
         <h6>Do you wish to be notified of new additions and news trough a monthly newsletter?</h6>
-        <form class="" action="" method="post">
+        <form class="" action="{% url 'add_to_newsletter' %}" method="post">
             {% csrf_token %}
 
                 <div class="row g-0 justify-content-center">
                     <div class="col-3">
                         <input class="form-text text-center form-control" type="email"
-                            placeholder="Subscibe to the newsletter" name="newsletter-email">
+                            placeholder="Subscibe to the newsletter" name="email_address">
                     </div>
                     <div class="col-1">
                         <button type="submit" class="btn btn-outline-secondary">Sign up!</button>
@@ -85,7 +85,7 @@
 
         </form>
     </section>
-    <footer class="row  bg-dark text-warning text-center justify-content-center fs-3 pt-2 g-0">
+    <footer class="row bg-dark text-warning text-center justify-content-center fs-3 pt-2 g-0">
         <div class="col-1 ms-5 mb-5">
             <a href="https://www.https://www.facebook.com/Jernskegg-art-100805775935214.com/" target="_blank" class="link-warning"><i class="fab fa-facebook-square"
                     aria-hidden="true"></i></a>

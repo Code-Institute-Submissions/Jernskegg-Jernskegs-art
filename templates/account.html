@@ -7,15 +7,15 @@
     <div class="justify-content-center row g-0">
         <div class="col-12 col-xl-3 text-white bg-dark ms-xl-1 text-center mb-2 p-4 order-xl-2">
             <h2>Welcome {{ user.username }}</h2>
-            <div class="row">
-                <a href="" class="text-white pt-2 pb-2">Change Username</a>
-            </div>
+            <hr>
             <div class="row">
                 <a href="{% url 'account_email' %}" class="text-white pt-2 pb-2" >Change E-mail</a>
             </div>
+            <hr>
             <div class="row">
                 <a href="{% url 'account_change_password' %}" class="text-white pt-2 pb-2">Change Password</a>
             </div>
+            <hr>
         </div>
         
         <div class="col-12 col-xl-7 text-center bg-dark order-xl-1">
@@ -38,6 +38,7 @@
             {% endif %}
             {% endfor %}
         </div>
+    </div>
 </section>
 
 {% else %}

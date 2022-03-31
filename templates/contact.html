@@ -14,11 +14,11 @@
             <div class="row justify-content-center">
                 <div class="col-10 form-label">{{field.label_tag}}</div>
                 <div class="col-10">
-                    {% if field.widget_type == 'textarea' %}
-                    {{ field | add_class:'form-control'}}
-                    {% elif field.widget_type == 'select' %}
-                    {{ field | add_class:'form-select'}}
-                    {% endif %}
+                    {% if field.widget_type == 'select' %}
+                        {{ field | add_class:'form-select'}}
+                        {% else %}
+                        {{ field | add_class:'form-control'}}
+                        {% endif %}
                 </div>
             </div>
             {% endfor %}

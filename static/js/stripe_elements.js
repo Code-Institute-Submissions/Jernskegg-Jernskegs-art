@@ -36,7 +36,7 @@ form.addEventListener('submit', function (ev) {
         'client_secret': clientSecret,
     };
 
-    var url = '/checkout/image_checkout_data/'
+    var url = '/checkout/image_checkout_data/';
 
     $.post(url, imageCheckData).done(function () {
         stripe.confirmCardPayment(clientSecret, {
@@ -70,5 +70,5 @@ form.addEventListener('submit', function (ev) {
         });
     }).fail(function () {
         location.reload();
-    })
+    });
 });

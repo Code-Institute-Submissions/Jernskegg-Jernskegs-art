@@ -17,3 +17,13 @@ class Contact(models.Model):
 
 class Newsletter(models.Model):
     email_address = models.EmailField(max_length=255, null=False,)
+
+    class Meta:
+        '''
+        Meta class to order and change verbose naming inside the admin panel
+        '''
+        verbose_name = 'Newsletter Email Address'
+        verbose_name_plural = 'Newsletter Email Addresses'
+
+    def __str__(self):
+        return f'{self.email_address}'
