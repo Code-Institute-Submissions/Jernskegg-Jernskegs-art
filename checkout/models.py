@@ -14,7 +14,7 @@ def generate_order_id():
 class ImageOrderInfo(models.Model):
     '''
     '''
-    order_id = models.CharField(max_length=32, unique=True, null=False,
+    order_id = models.CharField(max_length=34, unique=True, null=False,
                                 editable=False)
     first_name = models.CharField(max_length=64, null=False, blank=False)
     last_name = models.CharField(max_length=64, null=False, blank=False)
@@ -92,7 +92,7 @@ class RequestOrderInfo(models.Model):
     '''
     order information comming from the requests
     '''
-    order_id = models.CharField(max_length=32, unique=True, null=False,
+    order_id = models.CharField(max_length=34, unique=True, null=False,
                                 editable=True)
     request_order = models.ForeignKey(
         CommissionRequest,
