@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'commission',
     'cart',
     'checkout',
+    'admin_panel',
 
 ]
 
