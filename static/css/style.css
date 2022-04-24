@@ -138,8 +138,43 @@
     object-fit: cover;
 }
 
+.ap-menu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  z-index: 10000;
+}
 
-/* STRIPE */
+.ap-menu-option {
+  padding: 5px;
+  transition: 0.3s;
+}
+
+.ap-menu-option:hover {
+  padding: 5px;
+  background: lightgrey;
+  color: #212529;
+}
+
+.ap-menu-btn {
+  position: absolute;
+  bottom: 0;
+  padding: 2px;
+}
+
+.ap-menu-sel {
+  color:  black;
+  background: white;
+}
+
+.ap-hr{
+  padding: 0;
+  margin: 0;
+}
+
+
+/* --- STRIPE --- */
 /* Variables */
 .stripe-error {
     color: #dc3545;
