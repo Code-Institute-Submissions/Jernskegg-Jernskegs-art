@@ -8,8 +8,7 @@ from checkout.models import ImageOrderInfo, RequestOrderInfo
 from simple_pages.models import Contact
 from commission.models import CommissionRequest
 
-from .forms import UpdateProductForm
-
+from .forms import UpdateProductForm, AddNewProduct
 # Create your views here.
 
 
@@ -79,6 +78,8 @@ def update_product(request, item_id):
         hidden = True
     except MultiValueDictKeyError:
         hidden = False
+    except Exception:
+        return redirect(get_admin_panel_products)
 
     form_data = {
         'hidden': hidden,
@@ -93,5 +94,38 @@ def update_product(request, item_id):
         product.hidden = hidden
         product.save()
         return redirect(get_admin_panel_products)
+
+
+def check_file_format(files=''):
+    check_file = str(files)
+    check_string = check_file.split()
+    both_files_correct = 0  # get this to 2
+    for x in check_string:
+        if 'image/' in x:
+            both_files_correct += 1
+
+    if both_files_correct == 2:
+        return True
     else:
-        pass
+        return False
+
+
+def add_new_product(request, error=''):
+    setform = AddNewProduct
+
+    if request.method == 'POST':
+        form = setform(request.POST, request.FILES)
+        if check_file_format(request.FILES):
+            if form.is_valid():
+                new_product = form.save(commit=False)
+                new_product.save()
+                return redirect(get_admin_panel_products)
+
+    else:
+        form = AddNewProduct
+    context = {
+        'error_message': error,
+        'switch': 'products',
+        'form': form,
+    }
+    return render(request, 'products_add.html', context)

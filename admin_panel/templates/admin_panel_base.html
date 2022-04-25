@@ -15,7 +15,7 @@
     {% if user.is_staff %}
 
     <!-- Menu Sidebar Section -->
-    <aside class="col-2 ap-menu text-center fixed text-white bg-dark">
+    <aside class="col-12 col-md-2 ap-menu text-center text-white bg-dark">
         <div class="p-5">
             <h2>Admin panel</h2>
             <p id="keepMeOnRightPage">{{ switch }}</p>
@@ -73,9 +73,12 @@
 
         <!--Empty filler for admin panel menu -->
 
-        <div class="col-2">
+        <div class="col-12 mb-5 mt-5 mb-md-0 mt-md-0 pb-5 pt-5 pb-md-0 pt-md-0  col-md-1">
         </div>
-        <div class="g-0 p-3 col-10">
+        <div class="col-12 mb-5 mt-5 mb-md-0 mt-md-0 pb-5 pt-5 pb-md-0 pt-md-0 col-md-1">
+        </div>
+        
+        <div class="g-0 p-3 col-12 mb-3 mt-5 mt-md-0 col-md-10">
             {% block content %}
             <!-- Content Goes here -->
             {% endblock content %}
@@ -83,7 +86,7 @@
     </main>
     <footer class="g-0 row fixed-bottom bg-dark bg-opacity-10">
         <div class="col-2"></div>
-        <div class="col-10 p-2 text-center">
+        <div class="col-12 col-md-10 p-2 text-center">
             <h6>Todays date : {{ date }}</h6>
         </div>
     </footer>

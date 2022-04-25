@@ -44,4 +44,10 @@ urlpatterns = [
         views.update_product,
         name='update_product'
         ),
+
+    path(
+        'products/add-product',
+        views.add_new_product,
+        name='add_product'
+        ),
 ]
