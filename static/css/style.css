@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&family=Ubuntu&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -139,26 +141,31 @@
 }
 
 .ap-menu {
-  position: fixed;
-  bottom: 0;
+  position: absolute;
   left: 0;
   top: 0;
+  right: 0;
   z-index: 10000;
 }
 
 .ap-menu-option {
-  padding: 5px;
-  transition: 0.3s;
+  font-family: 'Ubuntu', sans-serif;
+  padding: 10px;
+  color: white;
+  
 }
 
-.ap-menu-option:hover {
-  padding: 5px;
+.text-decoration-none {
+  text-decoration: none;
+}
+
+.ap-menu-option:hover, .ap-menu-option h6:hover {
   background: lightgrey;
   color: #212529;
 }
 
 .ap-menu-btn {
-  position: absolute;
+  position: relative;
   bottom: 0;
   padding: 2px;
 }
@@ -168,9 +175,28 @@
   background: white;
 }
 
+.ap-menu-sel h6{
+  color: #212529;
+}
 .ap-hr{
   padding: 0;
   margin: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .ap-menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    top: 0;
+    z-index: 10000;
+  }
+
+  .ap-menu-btn {
+    position: absolute;
+    bottom: 0;
+    padding: 2px;
+  }
 }
 
 
