@@ -1,0 +1,51 @@
+{% extends "admin_panel_base.html" %}
+
+{% block content %}
+ <!-- Contact inquiries -->
+
+ <div id="ContactInquiriesDisplay" class="row text-center">
+    <div class="col-12">
+        <div class="bg-dark p-2">
+            <h2 class="text-white">purchase History</h2>
+        </div>
+        <div class="p-2 g-0 row bg-dark bg-opacity-10 mb-3">
+            <div class="col-5">
+                <p>Query</p>
+            </div>
+            <div class="col-1">
+                <p>Name</p>
+            </div>
+            <div class="col-2">
+                <p>Email Address</p>
+            </div>
+            <div class="col-2">
+                <p>Phone Number</p>
+            </div>
+            <div class="col-2">
+                <p>Date of Contact</p>
+            </div>
+
+        </div>
+        {% for item in contact %}
+        <div class="p-2 g-0 row bg-dark bg-opacity-10 mb-3">
+            <div class="col-5">
+                <p>{{ item.query }}</p>
+            </div>
+            <div class="col-1">
+                <p>{{ item.first_name }} {{ item.last_name }}</p>
+            </div>
+            <div class="col-2">
+                <a href="mailto: {{ item.email_address }}" target="_blank">{{ item.email_address }}</a>
+            </div>
+            <div class="col-2">
+                <p>{{ item.phone_number }}</p>
+            </div>
+            <div class="col-2">
+                <p>{{ item.date_contacted }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
