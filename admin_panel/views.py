@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.datastructures import MultiValueDictKeyError
 
 from datetime import date
@@ -58,9 +58,11 @@ def get_admin_panel_contact_inquiries(request):
     return render(request, 'contacts.html', context)
 
 
-def get_admin_panel_products(request, switch='overview'):
+def get_admin_panel_products(request, switch='overview', **kwargs):
     ''' just returns the admin_panel.html '''
+
     context = {
+        'message': kwargs.get('message'),
         'switch': 'products',
         'date': date.today(),
         'images': ImageEntry.objects.all(),
@@ -129,3 +131,9 @@ def add_new_product(request, error=''):
         'form': form,
     }
     return render(request, 'products_add.html', context)
+
+
+def remove_product(request, item_id):
+    delete_product = get_object_or_404(ImageEntry, id=item_id)
+    delete_product.delete()
+    return redirect(get_admin_panel_products)

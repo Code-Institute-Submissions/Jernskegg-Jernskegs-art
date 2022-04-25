@@ -44,10 +44,18 @@ urlpatterns = [
         views.update_product,
         name='update_product'
         ),
-
+    
+    # add product
     path(
         'products/add-product',
         views.add_new_product,
         name='add_product'
+        ),
+
+    # remove product
+    path(
+        'products/delete-product/<item_id>',
+        views.remove_product,
+        name='delete_product'
         ),
 ]

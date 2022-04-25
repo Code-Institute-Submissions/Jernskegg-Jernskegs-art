@@ -62,7 +62,7 @@
                     <form action="{% url 'update_product' item.id %}" method="POST" class="col-12">
                         {% csrf_token %}
                         <div class="p-2 g-0 row bg-dark bg-opacity-10 mb-3 align-content-center">
-                            <div class="col-12 col-md-3">
+                            <div class="col-12 col-md-2">
                                 <p>{{ item.title }}</p>
                             </div>
                             <div class="col-12 col-md-1">
@@ -84,10 +84,13 @@
                             </div>
                             <div class="col-12 col-md-2">
                                 <label>Cost: </label>
-                                <input type="number" name="price" value="{{ item.price }}">
+                                <input type="number" name="price" class="form-control-sm" value="{{ item.price }}">
                             </div>
                             <div class="col-12 col-md-1">
                                 <button type="submit" class="btn btn-dark">Save</button>
+                            </div>
+                            <div class="col-12 col-md-1">
+                                <button type="submit" formaction="{% url 'delete_product' item.id %}" class="btn btn-danger">Remove</button>
                             </div>
                         </div>
                     </form>
