@@ -10,7 +10,7 @@
           <a href="{% url 'gallery' %}?sort=name" class="btn btn-warning m-2 col-2">Sort by Name</a>
         </div>
         {% for listimage in images %}
-        {% if listimage.hidden == False %}
+        {% if listimage.is_hidden == False %}
         <div class="bg-dark m-2 col-10 col-md-5 col-xl-2 border-white">
             <div class="card gallery-image-preview  " data-bs-toggle="modal" data-bs-target="#{{ listimage.slug }}">
                 <img src="{{ listimage.water_marked_image.url }}" alt="{{ listimage.title }}" class="card-img card-image-size">

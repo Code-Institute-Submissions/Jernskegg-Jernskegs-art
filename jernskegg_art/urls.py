@@ -22,12 +22,11 @@ from commission import views as CommissionView
 from cart import views as CartView
 from checkout import views as CheckoutView
 from checkout.webhooks import webhook
-from admin_panel import views as AdminPanelView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('adminpanel/', AdminPanelView.get_admin_panel, name='adminpanel'),
+    path('adminpanel/', include('admin_panel.urls')),
     path('', pageView.GetHome.as_view(), name='home'),
     path('newsletter', pageView.sign_newsleter, name='add_to_newsletter'),
     path('gallery/', galleryView.ImageList.as_view(), name='gallery'),
@@ -40,12 +39,6 @@ urlpatterns = [
     path('cart/add/<item_id>', CartView.add_to_cart, name='add_to_cart'),
     path('checkout/', CheckoutView.image_checkout, name='checkout'),
     path('checkout/wh/', webhook, name='webhook'),
-
-    path(
-        'adminpanel/update/<item_id>',
-        AdminPanelView.update_product,
-        name='update_product'
-        ),
 
     path(
         'cart/remove/<item_id>',

@@ -65,7 +65,7 @@ def image_checkout(request):
                 image_order.user.id = request.user.id
                 image_order.save()
 
-            # Itterate trough items in cart to add them to order as line items
+            # Iterate trough items in cart to add them to order as line items
 
             for item_id in cart:
                 try:

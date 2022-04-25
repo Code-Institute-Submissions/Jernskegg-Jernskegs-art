@@ -23,7 +23,7 @@
     <h2>Newest addition</h2>
     <div class="row g-0 P-3 justify-content-center">
         {% for listimage in images %}
-        {% if listimage.hidden == False %}
+        {% if listimage.is_hidden == False %}
         <div class="col-1 ms-3">
             <img class="checkout-image" src="{{ listimage.water_marked_image.url}}" alt="{{ listimage.title }}">
         </div>

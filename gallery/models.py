@@ -24,7 +24,7 @@ class ImageEntry(models.Model):
     image = CloudinaryField('image')
     water_marked_image = CloudinaryField('water_marked_image')
     price = models.DecimalField(decimal_places=2, max_digits=10, default=0)
-    hidden = models.BooleanField(default=False)
+    is_hidden = models.BooleanField(default=False)
 
     class Meta:
         '''
