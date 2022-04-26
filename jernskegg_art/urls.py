@@ -15,53 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from simple_pages import views as pageView
-from gallery import views as galleryView
-from account import views as AccountView
-from commission import views as CommissionView
 from cart import views as CartView
-from checkout import views as CheckoutView
-from checkout.webhooks import webhook
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('adminpanel/', include('admin_panel.urls')),
-    path('', pageView.GetHome.as_view(), name='home'),
-    path('newsletter', pageView.sign_newsleter, name='add_to_newsletter'),
-    path('gallery/', galleryView.ImageList.as_view(), name='gallery'),
+    path('', include('simple_pages.urls')),
+    path('gallery/', include('gallery.urls')),
     path('accounts/', include('allauth.urls')),
-    path('accounts/', AccountView.GetAccount.as_view(), name='account'),
-    path('about/', pageView.get_about, name='about'),
-    path('contact/', pageView.get_contact, name='contact'),
-    path('commision/', CommissionView.add_request, name='request'),
-    path('cart/', CartView.get_cart, name='cart'),
-    path('cart/add/<item_id>', CartView.add_to_cart, name='add_to_cart'),
-    path('checkout/', CheckoutView.image_checkout, name='checkout'),
-    path('checkout/wh/', webhook, name='webhook'),
-
-    path(
-        'cart/remove/<item_id>',
-        CartView.remove_from_cart,
-        name="remove_from_cart"
-        ),
-
-    path(
-        'request_checkout/',
-        CheckoutView.request_checkout,
-        name='request_checkout',
-        ),
-
-    path(
-        'checkout_success/<order_id>',
-        CheckoutView.checkout_success,
-        name='checkout_success',
-        ),
-
-
-    path(
-        'checkout/image_checkout_data/',
-        CheckoutView.image_checkout_data,
-        name='image_checkout_data'
-        ),
+    path('accounts/', include('account.urls')),
+    path('commision/', include('commission.urls')),
+    path('checkout/', include('checkout.urls')),
+    path('cart/', include('cart.urls')),
 ]
