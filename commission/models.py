@@ -64,6 +64,8 @@ class CommissionRequest(models.Model):
         editable=False
     )
 
+    archived = models.BooleanField(default=False)
+
 
 class Comment(models.Model):
     '''

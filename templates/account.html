@@ -22,6 +22,7 @@
             <h2 class="text-white">purchase history</h2>
             {% for list in commission %}
             {% if list.requested_by == user %}
+            {% if list.archived == False %}
             <div class="p-3 bg-white m-2">
                 <div class="row">
                     <p class="col-12 col-xl text-dark">ORDER ID</p>
@@ -29,12 +30,17 @@
                     <p class="col-12 col-xl status-{{ list.status }}">{{ list.get_status_display }}</p>
                     <p class="col-12 col-xl text-dark">{{ list.image_size }}</p>
                     <p class="col-12 col-xl text-dark">{{ list.date_requested }}</p>
+                    <form action="{% url 'delete_request' list.id %}" method="POST" class="col-12 col-xl">
+                        {% csrf_token %}
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
                 </div>
-                <div class="row">
+                <div class="row bg-dark text-white rounded">
                     <p class="col-12">{{ list.user_description}}</p>
                 </div>
             </div>
             
+            {% endif %}
             {% endif %}
             {% endfor %}
         </div>
