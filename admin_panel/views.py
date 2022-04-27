@@ -58,11 +58,10 @@ def get_admin_panel_contact_inquiries(request):
     return render(request, 'contacts.html', context)
 
 
-def get_admin_panel_products(request, switch='overview', **kwargs):
+def get_admin_panel_products(request, switch='overview'):
     ''' just returns the admin_panel.html '''
 
     context = {
-        'message': kwargs.get('message'),
         'switch': 'products',
         'date': date.today(),
         'images': ImageEntry.objects.all(),

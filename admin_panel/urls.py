@@ -44,7 +44,7 @@ urlpatterns = [
         views.update_product,
         name='update_product'
         ),
-    
+
     # add product
     path(
         'products/add-product',

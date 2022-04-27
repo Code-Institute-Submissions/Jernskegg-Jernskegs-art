@@ -1,5 +1,7 @@
 from django.http import HttpResponse
-from .models import ImageOrderInfo, ImageOrderLineItem
+from django.shortcuts import get_object_or_404, get_list_or_404
+from django.core.mail import send_mail
+from .models import ImageOrderInfo, ImageOrderLineItem, RequestOrderInfo
 from gallery.models import ImageEntry
 
 import json
@@ -20,6 +22,34 @@ class StripeWH_Handler:
             content=f'unhandled webhook recieved: {event["type"]}',
             status=200
         )
+
+    def send_confirmation_mail(request, order_id):
+        if 'I-' in order_id:
+            checkout_order = get_object_or_404(ImageOrderInfo,
+                                               order_id=order_id)
+            checkout_item = get_list_or_404(ImageOrderLineItem,
+                                            order=checkout_order.id)
+            message = ''''''
+            for item in checkout_item:
+                item_title = item.image_product.title
+                item_url = item.image_product.image.url
+                item_price = item.image_product.price
+                message = f'''{message}
+            ---------
+            {item_title} : {item_url} : {item_price}€'''
+
+        else:
+            checkout_order = get_object_or_404(RequestOrderInfo,
+                                               order_id=order_id)
+        send_mail(
+            f'Order Confirmation:{checkout_order.order_id} ',
+            f'''Thank you for your purchase.
+    Order: {checkout_order.order_id} for {checkout_order.order_total}€
+    {message}''',
+            'noreply@jersnkeggs-art.heroku.com',
+            [checkout_order.email_address, ],
+
+            )
 
     def handle_payment_intent_succeeded(self, event):
         '''
@@ -53,13 +83,14 @@ class StripeWH_Handler:
                 time.sleep(1)
 
         if order_in_database:
+            self.send_confirmation_mail(image_order.order_id)
             return HttpResponse(
                 content=f'Webhook recieved: {event["type"]} | SUCCESS: Order allready in database,\
 nofurther action required',
                 status=200
             )
         else:
-            # If datase didn't match we create a entry here
+            # If datase didn't match we create an entry here
             image_order = None
             try:
                 image_order = ImageOrderInfo.objects.create(
@@ -88,7 +119,7 @@ nofurther action required',
                     content=f'Webhook recieved: {event["type"]} | ERROR {e}',
                     status=500
                     )
-
+        self.send_confirmation_mail(image_order.order_id)
         return HttpResponse(
             content=f'''Webhook recieved: {event["type"]} \
 | SUCCESS: Created Image order in webhook''',

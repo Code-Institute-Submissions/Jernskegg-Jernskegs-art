@@ -2,9 +2,11 @@
 Checkout view
 '''
 from django.shortcuts import (render, redirect, reverse,
-                              get_object_or_404, HttpResponse)
+                              get_object_or_404,
+                              HttpResponse)
 from django.conf import settings
 from django.views.decorators.http import require_POST
+
 
 from .forms import ImageOrderForm, RequestOrderForm
 from cart.contexts import cart_contents
