@@ -83,15 +83,15 @@ def update_product(request, item_id):
         return redirect(get_admin_panel_products)
 
     form_data = {
+        'title': request.POST['title'],
         'hidden': hidden,
         'price': request.POST['price'],
     }
     update_product_form = UpdateProductForm(form_data)
 
     if update_product_form.is_valid():
-        print('valid')
         product.price = request.POST['price']
-        print(hidden)
+        product.title = request.POST['title']
         product.hidden = hidden
         product.save()
         return redirect(get_admin_panel_products)
@@ -127,6 +127,7 @@ def add_new_product(request, error=''):
     context = {
         'error_message': error,
         'switch': 'products',
+        'date': date.today(),
         'form': form,
     }
     return render(request, 'products_add.html', context)
