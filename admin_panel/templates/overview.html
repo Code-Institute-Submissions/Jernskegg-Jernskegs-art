@@ -3,28 +3,51 @@
 {% block content %}
 <div id="overviewDisplay" class="row">
     <div class="col-12">
-        <div class="bg-dark p-2">
-            <h2 class="text-white">something</h2>
-        </div>
-        <div class="p-2 bg-dark bg-opacity-10 mb-3">
-            <p>1 Some paragraph that goes here and there, about latest updates</p>
+        <div class="bg-dark p-2 mb-3">
+            <h2 class="text-white">Welcome to the e-commerce admin panel</h2>
         </div>
     </div>
     <div class="col-8">
         <div class="bg-dark p-2 ">
-            <h2 class="text-white">something</h2>
+            <h2 class="text-white">Latest in request</h2>
         </div>
+        {% for item in commission %}
         <div class="p-2 bg-dark bg-opacity-10 mb-3">
-            <p>2 Some paragraph that goes here and there, about latest updates</p>
+            <p>{{ item.requested_by }} has requested</p>
+            <div class="p-1">
+                <p>{{ item.user_description }}</p>
+            </div>
         </div>
+            {% empty %}
+            <p>No recent requests made</p>
+            {% endfor %}
     </div>
     <div class="col-4">
         <div class="bg-dark p-2">
-            <h2 class="text-white">something</h2>
+            <h2 class="text-white">Latest in contact</h2>
         </div>
+        {% for item in contact %}
         <div class="p-2 bg-dark bg-opacity-10 mb-3">
-            <p>3 Some paragraph that goes here and there, about latest updates</p>
+            <p>{{ item.first_name }} {{ item.last_name }} asked:</p>
+            <div class="p-1">
+                <p>{{ item.query }}</p>
+            </div>
         </div>
+            {% empty %}
+            <p>No recent contact inquiries made</p>
+            {% endfor %}
+    </div>
+    <div class="col-8">
+        <div class="bg-dark p-2 ">
+            <h2 class="text-white">Latest in purchase history</h2>
+        </div>
+        {% for item in image_order %}
+        <div class="p-2 bg-dark bg-opacity-10 mb-3">
+            <p>{{ item.order_id}}</p>
+        </div>
+            {% empty %}
+            <p>No recent purchases made</p>
+            {% endfor %}
     </div>
 </div>
 {% endblock %}
