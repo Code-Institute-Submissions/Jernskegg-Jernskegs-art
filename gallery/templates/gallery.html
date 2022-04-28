@@ -20,8 +20,7 @@
                 </div>
             </div>
         </div>
-        
-          
+
         <div class="modal" id="{{ listimage.slug }}" tabindex="-1">
             <div class="modal-dialog modal-dialog-centered modal-fullscreen">
               <div class="modal-content">
@@ -36,7 +35,7 @@
                   <button type="button" data-bs-dismiss="modal" class="btn btn-secondary">Close</button>
                   <form class="" action="{% url 'add_to_cart' listimage.id %}" method="POST">
                     {% csrf_token %} 
-                    <button type="submit" class="btn btn-primary">add to basket</button>
+                    <button type="submit" class="btn btn-primary">add to basket: {{ listimage.price }}€</button>
                   </form>
                 </div>
               </div>
@@ -50,4 +49,4 @@
     </div>
 </section>
 
-{%endblock%}
+{% endblock %}
