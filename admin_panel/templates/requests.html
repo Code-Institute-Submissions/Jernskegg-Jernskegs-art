@@ -6,11 +6,19 @@
         <div class="bg-dark p-2">
             <h2 class="text-white">Request List</h2>
         </div>
-        {% for item in request_order %}
+        {% for item in commission %}
         <div class="p-2 bg-dark bg-opacity-10 mb-3">
-            <p>{{ item.first_name }}</p>
+            <p>{{ item.requested_by }} has requested</p>
+            <div class="p-1">
+                <p>{{ item.user_description }}</p>
+            </div>
         </div>
-        {% endfor %}
+            {% empty %}
+            <p>No recent requests made</p>
+            {% endfor %}
     </div>
 </div>
 {% endblock %}
+
+
+
