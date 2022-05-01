@@ -20,6 +20,7 @@ os.environ['EMAIL_HOST_USER'] = ' input your email host address '
 os.environ['STRIPE_CURRENCY'] = ' Input your currecy code you want to use '
 os.environ['STRIPE_PUBLIC_KEY'] = '  Input your Stripe public key here '
 os.environ['STRIPE_SECRET_KEY'] = ' Input your Sripe Secret key here '
+os.environ['STRIPE_WH_SECRET'] = ' Input your stripe Webhook key here '
 
 # debug settings,
 #  Having anything inside the quotes will result in a True, Left empty results in a false
@@ -29,3 +30,8 @@ os.environ['STRIPE_SECRET_KEY'] = ' Input your Sripe Secret key here '
 # also removing these lines will result in a false
 os.environ['DEBUG'] = 'x'
 os.environ['DEBUG_DATABASE'] = 'x'
+
+# Allowed host
+# This input goes into the setting and gets split by commas(,)
+# so input the hosts without spaces inbetween the commas
+os.environ['ALLOWED_HOSTS'] = " Input hosts here eg, '127.0.0.1,192.168.0.1' "
