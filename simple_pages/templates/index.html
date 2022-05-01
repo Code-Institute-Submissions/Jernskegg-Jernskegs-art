@@ -20,7 +20,8 @@
 </section>
 
 <section class="row p-5 text-center justify-content-center g-0">
-    <h2>Newest addition</h2>
+    <h2>Newest Artwork Addition</h2>
+    <p></p>
     <div class="row g-0 P-3 justify-content-center">
         {% for listimage in images %}
         {% if listimage.is_hidden == False %}
@@ -39,8 +40,8 @@
 <section class="row p-5 bg-dark text-white justify-content-center g-0">
     <div class="col">
         <h2>Requests?</h2>
-        <p><b>Time-Limited Deal!</b></p>
-        <p>Currently, we offer free commissions so that we can expand our coverage.</p>
+        <p><strong>Time-Limited Deal!</strong></p>
+        <p>Currently, we offer <strong>free commissions</strong> so that we can expand our coverage.</p>
         <p> Do you need something custom made, Or do You want an art piece of your online avatar, don't hesitate to make an order</p>
         <a href="{% url 'request' %}">Make a request</a>
     </div>
