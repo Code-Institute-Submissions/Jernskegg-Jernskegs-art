@@ -76,7 +76,7 @@
                             </div>
                             <div class="col-12 col-md-1 form-check form-check-inline">
                                 <label>Hidden: </label>
-                                {% if item.hidden %}
+                                {% if item.is_hidden %}
                                 <input type="checkbox" name="hide_me" checked>
                                 {% else %}
                                 <input  type="checkbox" name="hide_me">

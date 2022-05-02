@@ -76,15 +76,15 @@ def update_product(request, item_id):
     product = ImageEntry.objects.get(id=item_id)
     try:
         request.POST['hide_me']
-        hidden = True
+        is_hidden = True
     except MultiValueDictKeyError:
-        hidden = False
+        is_hidden = False
     except Exception:
         return redirect(get_admin_panel_products)
 
     form_data = {
         'title': request.POST['title'],
-        'hidden': hidden,
+        'is_hidden': is_hidden,
         'price': request.POST['price'],
     }
     update_product_form = UpdateProductForm(form_data)
@@ -92,7 +92,7 @@ def update_product(request, item_id):
     if update_product_form.is_valid():
         product.price = request.POST['price']
         product.title = request.POST['title']
-        product.hidden = hidden
+        product.is_hidden = is_hidden
         product.save()
         return redirect(get_admin_panel_products)
 
