@@ -56,8 +56,6 @@ The page was built to sell my art and make me available for people to make reque
 
 ![Databaserelation](docs/images/db_diagram.png)
 
-## Data model
-
 # Features
 
   ## Gallery

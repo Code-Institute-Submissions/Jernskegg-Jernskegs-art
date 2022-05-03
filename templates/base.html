@@ -18,10 +18,22 @@
             <a href="{% url 'home' %}" class="nav-link">
                 <span id="#logo" class="fs-2 ps-2 pe-2">Jernskeggs art</span>
             </a>
-            <a href="{% url 'gallery' %}" class="nav-link">Gallery</a>
-            <a href="{% url 'request' %}" class="nav-link">Request</a>
-            <a href="{% url 'about' %}" class="nav-link">About</a>
-            <a href="{% url 'contact' %}" class="nav-link">Contact</a>
+            <div class="g-0 nav d-none d-lg-flex">
+                <a href="{% url 'gallery' %}" class="nav-link">Gallery</a>
+                <a href="{% url 'request' %}" class="nav-link">Request</a>
+                <a href="{% url 'about' %}" class="nav-link">About</a>
+                <a href="{% url 'contact' %}" class="nav-link">Contact</a>
+            </div>
+            <div class="g-0 nav d-lg-none">
+                <a class="nav-link ms-2" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa-solid fa-bars"></i></a>
+                <ul class="dropdown-menu">
+                <li><a href="{% url 'gallery' %}" class="dropdown-item">Gallery</a></li>
+                <li><a href="{% url 'request' %}" class="dropdown-item">Request</a></li>
+                <li><a href="{% url 'about' %}" class="dropdown-item">About</a></li>
+                <li><a href="{% url 'contact' %}" class="dropdown-item">Contact</a></li>
+            </ul>
+            </div>
+
         </div>
         <div class="col d-flex bg-dark float-end align-items-center justify-content-end">
 
@@ -63,11 +75,11 @@
             {% csrf_token %}
 
                 <div class="row g-0 justify-content-center">
-                    <div class="col-3">
+                    <div class="col-10 col-lg-3">
                         <input class="form-text text-center form-control" type="email"
                             placeholder="Subscibe to the newsletter" name="email_address">
                     </div>
-                    <div class="col-1">
+                    <div class="col-6 col-lg-1 mt-2 mt-lg-0">
                         <button type="submit" class="btn btn-outline-secondary">Sign up!</button>
                     </div>
                 </div>
