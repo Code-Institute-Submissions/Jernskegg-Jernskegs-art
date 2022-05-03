@@ -2,30 +2,33 @@
 
 {% block content %}
 
-<section class="hero">
+<section class="hero d-none d-lg-block">
     <div class="col">
         <img class="hero-1 hero-transition"
             src="https://res.cloudinary.com/jernmoln/image/upload/v1646853240/static/images/hero_1.224cb6eb056e.png"
-            alt="A fictional fighter jet flying in the mountainous skies">
+            alt="A diorama of a main battle tank behind sandbags near a small river">
         <img class="hero-2 hero-transition"
             src="https://res.cloudinary.com/jernmoln/image/upload/v1646853243/static/images/hero_3.0792ab323412.png"
-            alt="A 3d rendering of a bathroom, marble sink white cabinet">
+            alt="A fictional fighter jet flying in the mountainous skies">
         <img class="hero-3 hero-transition"
             src="https://res.cloudinary.com/jernmoln/image/upload/v1646853242/static/images/hero_2.2fcf27c9aa40.png"
-            alt="A diorama of a main battle tank behind sandbags near a small river">
+            alt="A 3d rendering of a bathroom, marble sink white cabinet">
     </div>
-    <div class="callout">
+    <div class="callout d-none d-lg-block">
         <h2 class="callout-text">Welcome to my art portfolio, I am currently available for work</h2>
     </div>
 </section>
-
+<section class="d-block d-lg-none">
+    <img src="https://res.cloudinary.com/jernmoln/image/upload/v1646853243/static/images/hero_3.0792ab323412.png" class="col-12" alt="A fictional fighter jet flying in the mountainous skies">
+    <h2 class="p-2 fs-6 bg-dark text-white text-center">Welcome to my art portfolio, I am currently available for work</h2>
+</section>
 <section class="row p-5 text-center justify-content-center g-0">
     <h2>Newest Artwork Addition</h2>
     <p></p>
-    <div class="row g-0 P-3 justify-content-center">
+    <div class="row g-0 p-0 P-lg-3 justify-content-center">
         {% for listimage in images %}
         {% if listimage.is_hidden == False %}
-        <div class="col-1 ms-3">
+        <div class="col-lg-1 mt-2 col-6 ms-3">
             <img class="checkout-image" src="{{ listimage.water_marked_image.url}}" alt="{{ listimage.title }}">
         </div>
         {% endif %}
