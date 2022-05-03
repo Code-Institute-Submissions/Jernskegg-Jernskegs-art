@@ -120,14 +120,74 @@ The page was built to sell my art and make me available for people to make reque
   ## Responsive tests
 
   I am going to check all pages and test them through Google developer tools using the Device toolbar and set it to different models of tablets and phones.
+  
+  - ## 1080p desktop
+    - index: looks as intended
+    - gallery: looks as intended
+    - requests: looks as intended
+    - contact: looks as intended
+    - my account: looks as intended
+    - navbar: looks as intended
+    - footer: looks as intended
+    - cart: looks as intended
+    - checkout: looks as intended
 
+  - ## laptop (1366x768)
+    - index: image showcase is slightly squished
+    - gallery: looks as intended
+    - requests: looks as intended
+    - contact: looks as intended
+    - my account: looks as intended
+    - navbar: looks as intended
+    - footer: looks as intended
+    - cart: looks as intended
+    - checkout: looks as intended
+  
   - ## Nexus 5
+    - index: looks as intended
+    - gallery: some fullscreen images overflow out of the modal
+    - requests: looks as intended
+    - contact: looks as intended
+    - my account: looks as intended
+    - navbar: hamburger button placement wrong when logged out
+    - footer: looks as intended
+    - cart: looks as intended
+    - checkout: looks as intended
     
   - ## Galaxy Note II
+    - index: looks as intended
+    - gallery: some fullscreen images overflow out of the modal
+    - requests: looks as intended
+    - contact: looks as intended
+    - my account: looks as intended
+    - navbar: hamburger button placement wrong when logged out
+    - footer: looks as intended
+    - cart: looks as intended
+    - checkout: looks as intended
 
   - ## Ipad Pro
+    - index: image showcase is slightly squished
+    - gallery: some fullscreen images overflow out of the modal
+    - requests: looks as intended
+    - contact: looks as intended
+    - my account: looks as intended
+    - navbar: looks as intended
+    - footer: looks as intended
+    - cart: looks as intended
+    - checkout: looks as intended
   
   - ## Iphone 6/7/8 plus
+    - index: looks as intended
+    - gallery: some fullscreen images overflow out of the modal
+    - requests: looks as intended
+    - contact: looks as intended
+    - my account: looks as intended
+    - navbar: looks as intended
+    - footer: looks as intended
+    - cart: looks as intended
+    - checkout: looks as intended
+
+  Notes: Footer doesn't fill all the way down, Gallery image overflows out of the image on most devices, and the hamburger icon placement is wrong when you are not logged in.
 
   ## Automated testing
 
