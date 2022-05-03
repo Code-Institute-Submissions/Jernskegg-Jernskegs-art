@@ -91,6 +91,14 @@
     clip-path: polygon(100% 0, 100% 75%, 75% 100%, 0 100%, 0 0);
 }
 
+.gallery-image-shadow {
+  border: 1px solid white;
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.20);
+  -moz-box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.20);
+  -webkit-box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.20);
+  -khtml-box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.20);
+}
+
 .card-image-size{
     height: 250px !important;
     object-fit: cover !important;

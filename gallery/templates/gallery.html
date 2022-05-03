@@ -22,20 +22,24 @@
         </div>
 
         <div class="modal" id="{{ listimage.slug }}" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered modal-fullscreen">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
               <div class="modal-content">
                 <div class="modal-header">
                   <p class="modal-title">{{ listimage.title }}</p>
                   <button type="button" data-bs-dismiss="modal" class="btn-close" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <img src="{{ listimage.water_marked_image.url}}" alt="{{ listimage.title }}">
+                <div class="modal-body text-center bg-dark">
+                    <div class="row ">
+                      <div class="col">
+                        <img src="{{ listimage.water_marked_image.url}}" class="gallery-image-shadow" alt="{{ listimage.title }}">
+                      </div>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                  <button type="button" data-bs-dismiss="modal" class="btn btn-secondary">Close</button>
-                  <form class="" action="{% url 'add_to_cart' listimage.id %}" method="POST">
+                <div class="modal-footer text-center">
+                  <div class="col"><button type="button" data-bs-dismiss="modal" class="btn btn-secondary">Close</button></div>
+                  <form class="col" action="{% url 'add_to_cart' listimage.id %}" method="POST">
                     {% csrf_token %} 
-                    <button type="submit" class="btn btn-primary">add to basket: {{ listimage.price }}€</button>
+                    <button type="submit" class="btn btn-warning">add to basket: {{ listimage.price }}€</button>
                   </form>
                 </div>
               </div>
