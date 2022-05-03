@@ -6,7 +6,7 @@
 
 {% if user.is_authenticated %}
 <section class="row g-0 justify-content-center text-center">
-    <div class="text-white bg-dark col-11 col-md-6  m-5 p-5">
+    <div class="text-white bg-dark col-11 col-lg-6  m-5 p-1 p-lg-5">
         <h2>Request a commission</h2>
         <form class="form" method="post">
             {% csrf_token %}
@@ -22,7 +22,7 @@
                 </div>
             </div>
             {% endfor %}
-            <div class="row mt-5">
+            <div class="row mb-4 mt-5">
                 <div class="col">
                     <p><b>Time-Limited Deal!</b></p>
                     <p>At the moment I am doing free commisions so that I can expand my bussines</p>

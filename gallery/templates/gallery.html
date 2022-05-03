@@ -2,12 +2,12 @@
 
 {% block content %}
 
-<section class="p-5">
+<section class="p-0 p-lg-5">
     <div class="g-0 row main-gallery justify-content-center" >
         <div class="row justify-content-center">
-          <a href="{% url 'gallery' %}" class="btn btn-warning m-2 col-2">Sort by newest</a>
-          <a href="{% url 'gallery' %}?sort=price" class="btn btn-warning m-2 col-2">Sort by price</a>
-          <a href="{% url 'gallery' %}?sort=name" class="btn btn-warning m-2 col-2">Sort by Name</a>
+          <a href="{% url 'gallery' %}" class="btn btn-warning m-2 col col-lg-2">Sort by newest</a>
+          <a href="{% url 'gallery' %}?sort=price" class="btn btn-warning m-2 col col-lg-2">Sort by price</a>
+          <a href="{% url 'gallery' %}?sort=name" class="btn btn-warning m-2 col col-lg-2">Sort by Name</a>
         </div>
         {% for listimage in images %}
         {% if listimage.is_hidden == False %}
